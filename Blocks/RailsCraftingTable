@@ -16,8 +16,7 @@ public class RailsCraftingTable extends Block
 {
     private IIcon workbenchIconTop;
     private IIcon workbenchIconFront;
-    private IIcon blockIcon;
-
+    
     public RailsCraftingTable(int par1)
     {
         super(Material.wood);
@@ -28,7 +27,8 @@ public class RailsCraftingTable extends Block
         return par1 == 1 ? this.workbenchIconTop : (par1 == 0 ? Blocks.planks.getBlockTextureFromSide(par1) : (par1 != 2 && par1 != 4 ? this.blockIcon : this.workbenchIconFront));
     }
 
-    public void registerBlockIIcons(IIconRegister par1IconRegister)
+    @Override
+    public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.blockIcon = par1IconRegister.registerIcon("expandedrails:Rails_Crafting_Table_Side");
         this.workbenchIconTop = par1IconRegister.registerIcon("expandedrails:Rails_Crafting_Table_Top");
@@ -41,7 +41,8 @@ public class RailsCraftingTable extends Block
     {
         if (!player.isSneaking())
         {
-            player.openGui(ERMBase.instance, 0, var1, var2, var3, var4);
+        	player.openGui(ERMBase.instance, 0, var1, var2, var3, var4);
+            player.openGui(ERMBase.modid, 0, var1, var2, var3, var4); 
             return true;
         }
         else
