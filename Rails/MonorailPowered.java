@@ -9,8 +9,7 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class MonorailPowered extends BlockRailPowered
-{
+public class MonorailPowered extends BlockRailPowered {
 	public IIcon theIcon;
 	
     public MonorailPowered(int par1)

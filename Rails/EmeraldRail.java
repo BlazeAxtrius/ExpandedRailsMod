@@ -7,7 +7,7 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class EmeraldRail extends ExpandedRail
+public class EmeraldRail extends AllRails
 {
     public IIcon theIcon;
 
@@ -18,17 +18,6 @@ public class EmeraldRail extends ExpandedRail
         setStepSound(Block.soundTypeMetal);
         setBlockTextureName("expandedrails:EmeraldRail");
         // TODO Auto-generated constructor stub
-    }
-
-    public IIcon getIcon(int par1, int par2)
-    {
-        return par2 >= 6 ? this.theIcon : this.blockIcon;
-    }
-
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        super.registerBlockIcons(par1IconRegister);
-        this.theIcon = par1IconRegister.registerIcon("expandedrails:EmeraldRail_Turn");
     }
 
     public static void main(String[] args)

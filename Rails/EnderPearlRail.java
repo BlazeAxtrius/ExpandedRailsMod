@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class EnderPearlRail extends ExpandedRail
+public class EnderPearlRail extends AllRails
 {
     public IIcon theIcon;
 
@@ -17,17 +17,6 @@ public class EnderPearlRail extends ExpandedRail
         setStepSound(Block.soundTypeMetal);
         setBlockTextureName("expandedrails:EnderPearlRail");
         // TODO Auto-generated constructor stub
-    }
-
-    public IIcon getIcon(int par1, int par2)
-    {
-        return par2 >= 6 ? this.theIcon : this.blockIcon;
-    }
-
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        super.registerBlockIcons(par1IconRegister);
-        this.theIcon = par1IconRegister.registerIcon("expandedrails:EnderPearlRail_Turn");
     }
 
     public static void main(String[] args)

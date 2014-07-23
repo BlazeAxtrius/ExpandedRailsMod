@@ -24,28 +24,17 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class IceRail extends BlockRail
+public class IceRail extends AllRails
 {
     public IIcon theIcon;
 
     public IceRail(int par1)
     {
-        super();
+        super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
         setBlockTextureName("expandedrails:IceRail");
         // TODO Auto-generated constructor stub
-    }
-
-    public IIcon getIcon(int par1, int par2)
-    {
-        return par2 >= 6 ? this.theIcon : this.blockIcon;
-    }
-
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        super.registerBlockIcons(par1IconRegister);
-        this.theIcon = par1IconRegister.registerIcon("expandedrails:IceRail_Turn");
     }
 
     public static void main(String[] args)

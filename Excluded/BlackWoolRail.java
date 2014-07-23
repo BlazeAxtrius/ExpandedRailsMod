@@ -7,13 +7,13 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.MinecraftForge;
 
-public class BlackWoolRail extends BlockRail
+public class BlackWoolRail extends AllRails
 {
     public IIcon theIcon;
 
     public BlackWoolRail(int par1)
     {
-    	super();
+    	super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeCloth);
         setBlockTextureName("expandedrails:BlackWoolRail");

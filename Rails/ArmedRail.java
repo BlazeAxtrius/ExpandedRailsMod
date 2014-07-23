@@ -1,6 +1,9 @@
 package com.expanded.rails.mod.rails;
 
 import com.expanded.rails.mod.ERMBase;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -8,7 +11,7 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class ArmedRail extends ExpandedRail
+public class ArmedRail extends AllRails
 {
     public IIcon theIcon;
 
@@ -19,17 +22,6 @@ public class ArmedRail extends ExpandedRail
         setStepSound(Block.soundTypeMetal);
         setBlockTextureName("expandedrails:ArmedRail");
         // TODO Auto-generated constructor stub
-    }
-
-    public IIcon getIcon(int par1, int par2)
-    {
-        return par2 >= 6 ? this.theIcon : this.blockIcon;
-    }
-
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        super.registerBlockIcons(par1IconRegister);
-        this.theIcon = par1IconRegister.registerIcon("expandedrails:ArmedRail_Turn");
     }
 
     public static void main(String[] args)
