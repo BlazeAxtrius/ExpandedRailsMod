@@ -1,9 +1,5 @@
 package com.expanded.rails.mod.rails;
 
-import javax.swing.Icon;
-
-import com.expanded.rails.mod.rails.AllRails;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,14 +15,9 @@ public class TriplerailGlowing extends AllRails
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
         setBlockTextureName("expandedrails:GlowTriplerail");
-        setLightValue(0.7F);
+        setLightLevel(0.7F);
         // TODO Auto-generated constructor stub
     }
-
-    private void setLightValue(float f) {
-		// TODO Auto-generated method stub
-		
-	}
 
     public static void main(String[] args)
     {

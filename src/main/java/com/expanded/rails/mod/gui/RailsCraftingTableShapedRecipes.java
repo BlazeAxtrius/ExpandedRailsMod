@@ -3,6 +3,7 @@ package com.expanded.rails.mod.gui;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class RailsCraftingTableShapedRecipes implements IRecipe
@@ -12,6 +13,8 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
     private ItemStack recipeItems[];
     private ItemStack recipeOutput;
     public final ItemStack recipeOutputItemID;
+    //private boolean field_92101_f;
+    private static final String __OBFID = "CL_00000093";
 
     public RailsCraftingTableShapedRecipes(int i, int j, ItemStack aitemstack[], ItemStack itemstack)
     {
@@ -34,12 +37,12 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
         {
             for (int j = 0; j <= 5 - recipeHeight; j++)
             {
-                if (func_21137_a(inventorycrafting, i, j, true))
+                if (this.func_21137_a(inventorycrafting, i, j, true))
                 {
                     return true;
                 }
 
-                if (func_21137_a(inventorycrafting, i, j, false))
+                if (this.func_21137_a(inventorycrafting, i, j, false))
                 {
                     return true;
                 }
@@ -74,24 +77,22 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
 
                 ItemStack itemstack1 = inventorycrafting.getStackInRowAndColumn(k, l);
 
-                if (itemstack1 == null && itemstack == null)
+                if (itemstack1 != null || itemstack != null)
                 {
-                    continue;
-                }
+                    if (itemstack1 == null && itemstack != null || itemstack1 != null && itemstack == null)
+                    {
+                        return false;
+                    }
 
-                if (itemstack1 == null && itemstack != null || itemstack1 != null && itemstack == null)
-                {
-                    return false;
-                }
+                    if (itemstack.getItem() != itemstack1.getItem())
+                    {
+                        return false;
+                    }
 
-                if (itemstack != itemstack1)
-                {
-                    return false;
-                }
-
-                if (itemstack.getItemDamage() != -1 && itemstack.getItemDamage() != itemstack1.getItemDamage())
-                {
-                    return false;
+                    if (itemstack.getItemDamage() != 32767 && itemstack.getItemDamage() != itemstack1.getItemDamage())
+                    {
+                        return false;
+                    }
                 }
             }
         }
@@ -99,6 +100,40 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
         return true;
     }
 
+    //public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting)
+    //{
+        //ItemStack itemstack = this.getRecipeOutput().copy();
+
+        //if (this.field_92101_f)
+        //{
+            //for (int i = 0; i < par1InventoryCrafting.getSizeInventory(); ++i)
+            //{
+                //ItemStack itemstack1 = par1InventoryCrafting.getStackInSlot(i);
+
+                //if (itemstack1 != null && itemstack1.hasTagCompound())
+                //{
+                    //itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
+                //}
+            //}
+        //}
+
+        //return itemstack;
+    //}
+
+    /**
+* Returns the size of the recipe area
+*/
+    //public int getRecipeSize()
+    //{
+        //return this.recipeWidth * this.recipeHeight;
+    //}
+
+    //public RailsCraftingTableShapedRecipes func_92100_c()
+    //{
+        //this.field_92101_f = true;
+        //return this;
+    //}
+    
     public ItemStack getCraftingResult(InventoryCrafting inventorycrafting)
     {
         return new ItemStack(recipeOutput.getItem(), recipeOutput.stackSize, recipeOutput.getItemDamage());

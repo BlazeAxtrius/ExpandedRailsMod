@@ -21,11 +21,6 @@ public class MonorailPowered extends BlockRailPowered {
         setBlockTextureName("expandedrails:MonorailPowered");
         // TODO Auto-generated constructor stub
     }
-    public void registerIcons(IIconRegister par1IconRegister)
-    {
-        super.registerBlockIcons(par1IconRegister);
-        this.theIcon = par1IconRegister.registerIcon("com.expandedrails:MonorailPowered_On");
-    }
 
     protected boolean func_94360_a(World par1World, int par2, int par3, int par4, int par5, boolean par6, int par7)
     {

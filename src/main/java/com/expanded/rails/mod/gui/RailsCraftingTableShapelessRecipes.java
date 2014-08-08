@@ -36,9 +36,9 @@ public class RailsCraftingTableShapelessRecipes implements IRecipe
     {
         ArrayList arraylist = new ArrayList(this.recipeItems);
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < 5; ++j)
+            for (int j = 0; j < 5; j++)
             {
                 ItemStack itemstack = par1InventoryCrafting.getStackInRowAndColumn(j, i);
 

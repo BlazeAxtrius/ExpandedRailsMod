@@ -15,16 +15,11 @@ public class GlowstoneRail extends AllRails
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
         setBlockTextureName("expandedrails:GlowstoneRail");
-        setLightValue(0.7F);
+        setLightLevel(0.7F);
         // TODO Auto-generated constructor stub
     }
-
-    private void setLightValue(float f) {
-		// TODO Auto-generated method stub
-		
-	}
-
-    public static void main(String[] args)
+    
+	public static void main(String[] args)
     {
         // TODO Auto-generated method stub
     }

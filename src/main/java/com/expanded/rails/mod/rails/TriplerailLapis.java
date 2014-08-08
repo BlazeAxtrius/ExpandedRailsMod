@@ -32,7 +32,7 @@ public class TriplerailLapis extends AllRails
 
     public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
     {
-        if (world.getBlock(x, y, z) == ERMBase.monorailLapis)
+        if (world.getBlock(x, y, z) == ERMBase.triplerailLapis)
         {
             cart.motionY = 1.0D;
         }

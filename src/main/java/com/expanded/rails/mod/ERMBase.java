@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemMinecart;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -24,10 +25,10 @@ import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
 //import expanded.rails.mod.entity.TileEntityRailBrake;
 //import expanded.rails.mod.entity.TileEntityRailBrakeEntity;
 import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
-import com.expanded.rails.mod.gui.SlotRailsCraftingTable;
+import com.expanded.rails.mod.items.MinecartWhite;
 import com.expanded.rails.mod.rails.*;
 
-@Mod(modid = "ExpandedRailsMod", name = "Expanded Rails Mod", version = "1.4.1")
+@Mod(modid = "ExpandedRailsMod", name = "Expanded Rails Mod", version = "1.4.3")
 public class ERMBase
 {
 	
@@ -210,7 +211,7 @@ public class ERMBase
         railIceBase = new ExpandedItem(8071).setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("railIceBase").setTextureName("expandedrails:Rail_Ice_Base");
         railEnderPearlBase = new ExpandedItem(8072).setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("railEnderPearlBase").setTextureName("expandedrails:Rail_EnderPearl_Base");
         obsidianChunk = new ExpandedItem(7999).setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("obsidianChunk").setTextureName("expandedrails:ObsidianChunk");
-        //minecartWhite = new ExpandedItem(minecartWhiteID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartWhite").setTextureName("expandedrails:MinecartWhite");
+        minecartWhite = new MinecartWhite(8073).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartWhite").setTextureName("expandedrails:minecart_white");
         //minecartOrange = new ExpandedItem(minecartOrangeID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartOrange").setTextureName("expandedrails:MinecartOrange");
         //minecartMagenta = new ExpandedItem(minecartMagentaID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartMagenta").setTextureName("expandedrails:MinecartMagenta");
         //minecartLightblue = new ExpandedItem(minecartLightblueID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartLightblue").setTextureName("expandedrails:MinecartLightblue");
@@ -552,8 +553,8 @@ public class ERMBase
         GameRegistry.registerItem(railEnderPearlBase, "railEnderPearlBase");
         LanguageRegistry.addName(obsidianChunk, "Obsidian Chunk");
         GameRegistry.registerItem(obsidianChunk, "obsidianChunk");
-        //LanguageRegistry.addName(minecartWhite, "Minecart White");
-        //GameRegistry.registerItem(minecartWhite, "minecartWhite");
+        LanguageRegistry.addName(minecartWhite, "Minecart White");
+        GameRegistry.registerItem(minecartWhite, "minecartWhite");
         //LanguageRegistry.addName(minecartOrange, "Minecart Orange");
         //GameRegistry.registerItem(minecartOrange, "minecartOrange");
         //LanguageRegistry.addName(minecartMagenta, "Minecart Magenta");
