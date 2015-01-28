@@ -11,7 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class ExpandedRail extends BlockRail
 {
-    public ExpandedRail(int par1)
+    public ExpandedRail()
     {
         super();
         setHardness(0.7F);
