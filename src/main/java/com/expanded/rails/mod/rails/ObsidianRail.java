@@ -9,14 +9,13 @@ import net.minecraft.util.IIcon;
 
 public class ObsidianRail extends AllRails
 {
-    public IIcon theIcon;
 
-    public ObsidianRail(int par1)
+    public ObsidianRail()
     {
-        super(par1);
+        super();
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setBlockTextureName("expandedrails:ObsidianRail");
+        setUnlocalizedName("expandedrails:ObsidianRail");
         setResistance(2000.0F);
     }
 }

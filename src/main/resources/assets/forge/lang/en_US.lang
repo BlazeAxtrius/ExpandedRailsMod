@@ -3,3 +3,11 @@ commands.forge.usage.tracking=Use /forge track <type> <duration>. Valid types ar
 commands.forge.tps.summary=%s : Mean tick time: %d ms. Mean TPS: %d
 
 commands.forge.tracking.te.enabled=Tile Entity tracking enabled for %d seconds.
+
+#You need to define your block and items names here using the string you used to register the item/block
+tile.obsidianRail.name=Obsidian Rail
+item.obsidianBar.name=Obsidian Bar
+#I'm not sure if it should be itemGroup.tabNormalRails=... or itemGroup.tabNormalRails.name=...
+itemGroup.tabNormalRails=Normal Rails
+itemGroup.tabTripleRails=Triple Rails
+itemGroup.tabMonoRails=Mono Rails

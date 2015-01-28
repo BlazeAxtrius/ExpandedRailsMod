@@ -1,32 +1,61 @@
 package com.expanded.rails.mod;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemMinecart;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.LanguageRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 
-import com.expanded.rails.mod.blocks.*;
-import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
-//import expanded.rails.mod.entity.TileEntityRailBrake;
-//import expanded.rails.mod.entity.TileEntityRailBrakeEntity;
+import com.expanded.rails.mod.blocks.RailsCraftingTable;
 import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
 import com.expanded.rails.mod.items.MinecartWhite;
-import com.expanded.rails.mod.rails.*;
+import com.expanded.rails.mod.rails.AllRails;
+import com.expanded.rails.mod.rails.ArmedRail;
+import com.expanded.rails.mod.rails.ChainRail;
+import com.expanded.rails.mod.rails.DiamondNetherRail;
+import com.expanded.rails.mod.rails.DiamondObsidianRail;
+import com.expanded.rails.mod.rails.DiamondRail;
+import com.expanded.rails.mod.rails.EmeraldRail;
+import com.expanded.rails.mod.rails.EnderPearlRail;
+import com.expanded.rails.mod.rails.GlowstoneRail;
+import com.expanded.rails.mod.rails.IceRail;
+import com.expanded.rails.mod.rails.LapisRail;
+import com.expanded.rails.mod.rails.MonorailArmed;
+import com.expanded.rails.mod.rails.MonorailChain;
+import com.expanded.rails.mod.rails.MonorailDiamond;
+import com.expanded.rails.mod.rails.MonorailEmerald;
+import com.expanded.rails.mod.rails.MonorailEnderPearl;
+import com.expanded.rails.mod.rails.MonorailGlowing;
+import com.expanded.rails.mod.rails.MonorailIce;
+import com.expanded.rails.mod.rails.MonorailLapis;
+import com.expanded.rails.mod.rails.MonorailObsidian;
+import com.expanded.rails.mod.rails.MonorailPowered;
+import com.expanded.rails.mod.rails.ObsidianRail;
+import com.expanded.rails.mod.rails.TriplerailArmed;
+import com.expanded.rails.mod.rails.TriplerailChain;
+import com.expanded.rails.mod.rails.TriplerailDiamond;
+import com.expanded.rails.mod.rails.TriplerailEmerald;
+import com.expanded.rails.mod.rails.TriplerailEnderPearl;
+import com.expanded.rails.mod.rails.TriplerailGlowing;
+import com.expanded.rails.mod.rails.TriplerailIce;
+import com.expanded.rails.mod.rails.TriplerailLapis;
+import com.expanded.rails.mod.rails.TriplerailPowered;
+//import expanded.rails.mod.entity.TileEntityRailBrake;
+//import expanded.rails.mod.entity.TileEntityRailBrakeEntity;
+
+
 
 @Mod(modid = "ExpandedRailsMod", name = "Expanded Rails Mod", version = "1.4.3")
 public class ERMBase
@@ -92,7 +121,17 @@ public class ERMBase
     public void load(FMLInitializationEvent event)
     {
         //Custom Blocks//
-        obsidianRail = new ObsidianRail(3001).setBlockName("obsidianRail");
+        // DrCyano: I updated the ObsidianRail block. Apply the same changes to all other blocks and items
+    	obsidianRail = registerBlock(new ObsidianRail(),"obsidianRail");
+    	if(event.getSide() == Side.CLIENT){
+    		// this part would normally be in the client proxy
+    		// though I'd probably put it in the registerBlock(...) method
+    		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+    				.register(net.minecraft.item.Item.getItemFromBlock(obsidianRail), 0, 
+    				new ModelResourceLocation(modid+":"+"obsidianRail", "inventory"));
+    	}
+		
+    	
         diamondRail = new DiamondRail(3002).setBlockName("diamondRail");
         lapisRail = new LapisRail(3003).setBlockName("lapisRail");
         iceRail = new IceRail(3004).setBlockName("iceRail");
@@ -228,363 +267,43 @@ public class ERMBase
         //minecartRed = new ExpandedItem(minecartRedID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartRed").setTextureName("expandedrails:MinecartRed");
         //minecartBlack = new ExpandedItem(minecartBlackID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartBlack").setTextureName("expandedrails:MinecartBlack");
         //Block Registering//
-        LanguageRegistry.addName(obsidianRail, "Obsidian Rail");
-        //MinecraftForge.setBlockHarvestLevel(obsidianRail, "pickaxe", 0);
-        GameRegistry.registerBlock(obsidianRail, "obsidianRail");
-        LanguageRegistry.addName(lapisRail, "Lapis Lazuli Rail");
-        //MinecraftForge.setBlockHarvestLevel(lapisRail, "pickaxe", 0);
-        GameRegistry.registerBlock(lapisRail, "lapisRail");
-        LanguageRegistry.addName(diamondRail, "Diamond Rail");
-        //MinecraftForge.setBlockHarvestLevel(diamondRail, "pickaxe", 0);
-        GameRegistry.registerBlock(diamondRail, "diamondRail");
-        LanguageRegistry.addName(diamondNetherRail, "Diamond-Nether Rail");
-        //MinecraftForge.setBlockHarvestLevel(diamondNetherRail, "pickaxe", 0);
-        GameRegistry.registerBlock(diamondNetherRail, "diamondNetherRail");
-        LanguageRegistry.addName(diamondObsidianRail, "Diamond-Obsidian Rail");
-        //MinecraftForge.setBlockHarvestLevel(diamondObsidianRail, "pickaxe", 0);
-        GameRegistry.registerBlock(diamondObsidianRail, "diamondoORail");
-        LanguageRegistry.addName(iceRail, "Ice Rail");
-        //MinecraftForge.setBlockHarvestLevel(iceRail, "pickaxe", 0);
-        GameRegistry.registerBlock(iceRail, "iceRail");
-        LanguageRegistry.addName(glowstoneRail, "Glowing Rail");
-        //MinecraftForge.setBlockHarvestLevel(glowstoneRail, "pickaxe", 0);
-        GameRegistry.registerBlock(glowstoneRail, "glowstoneRail");
-        LanguageRegistry.addName(whiteWoolRail, "White Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(whiteWoolRail, "pickaxe", 2);
-        GameRegistry.registerBlock(whiteWoolRail, "whiteWoolRail");
-        LanguageRegistry.addName(orangeWoolRail, "Orange Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(orangeWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(orangeWoolRail, "orangeWoolRail");
-        LanguageRegistry.addName(magentaWoolRail, "Magenta Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(magentaWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(magentaWoolRail, "magentaWoolRail");
-        LanguageRegistry.addName(lightblueWoolRail, "LightBlue Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(lightblueWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(lightblueWoolRail, "lightblueWoolRail");
-        LanguageRegistry.addName(yellowWoolRail, "Yellow Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(yellowWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(yellowWoolRail, "yellowWoolRail");
-        LanguageRegistry.addName(limeWoolRail, "Lime Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(limeWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(limeWoolRail, "limeWoolRail");
-        LanguageRegistry.addName(pinkWoolRail, "Pink Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(pinkWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(pinkWoolRail, "pinkWoolRail");
-        LanguageRegistry.addName(grayWoolRail, "Gray Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(grayWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(grayWoolRail, "grayWoolRail");
-        LanguageRegistry.addName(lightgrayWoolRail, "LightGray Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(lightgrayWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(lightgrayWoolRail, "lightgrayWoolRail");
-        LanguageRegistry.addName(cyanWoolRail, "Cyan Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(cyanWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(cyanWoolRail, "cyanWoolRail");
-        LanguageRegistry.addName(purpleWoolRail, "Purple Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(purpleWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(purpleWoolRail, "purpleWoolRail");
-        LanguageRegistry.addName(blueWoolRail, "Blue Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(blueWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(blueWoolRail, "blueWoolRail");
-        LanguageRegistry.addName(brownWoolRail, "Brown Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(brownWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(brownWoolRail, "brownWoolRail");
-        LanguageRegistry.addName(greenWoolRail, "Green Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(greenWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(greenWoolRail, "greenWoolRail");
-        LanguageRegistry.addName(redWoolRail, "Red Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(redWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(redWoolRail, "redWoolRail");
-        LanguageRegistry.addName(blackWoolRail, "Black Wool Rail");
-        //MinecraftForge.setBlockHarvestLevel(blackWoolRail, "pickaxe", 0);
-        GameRegistry.registerBlock(blackWoolRail, "blackWoolRail");
-        LanguageRegistry.addName(brickRail, "Brick Rail");
-        //MinecraftForge.setBlockHarvestLevel(brickRail, "pickaxe", 0);
-        GameRegistry.registerBlock(brickRail, "brickRail");
-        LanguageRegistry.addName(netherStarRail, "NetherStar Rail");
-        //MinecraftForge.setBlockHarvestLevel(netherStarRail, "pickaxe", 0);
-        GameRegistry.registerBlock(netherStarRail, "netherStarRail");
-        LanguageRegistry.addName(emeraldRail, "Emerald Rail");
-        //MinecraftForge.setBlockHarvestLevel(emeraldRail, "pickaxe", 0);
-        GameRegistry.registerBlock(emeraldRail, "emeraldRail");
-        LanguageRegistry.addName(enderPearlRail, "EnderPearl Rail");
-        //MinecraftForge.setBlockHarvestLevel(enderPearlRail, "pickaxe", 0);
-        GameRegistry.registerBlock(enderPearlRail, "enderPearlRail");
-        LanguageRegistry.addName(chainRail, "Chain Rail");
-        //MinecraftForge.setBlockHarvestLevel(chainRail, "pickaxe", 0);
-        GameRegistry.registerBlock(chainRail, "chainRail");
-        LanguageRegistry.addName(armedRail, "Armed Rail");
-        //MinecraftForge.setBlockHarvestLevel(armedRail, "pickaxe", 0);
-        GameRegistry.registerBlock(armedRail, "armedRail");
-        //Monorail//
-        LanguageRegistry.addName(monorailDiamond, "Diamond Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailDiamond, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailDiamond, "monorailDiamond");
-        LanguageRegistry.addName(monorailGlowing, "Glowing Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailGlowing, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailGlowing, "monorailGlowing");
-        LanguageRegistry.addName(monorailGrayOrange, "Gray-Orange Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailGrayOrange, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailGrayOrange, "monorailGrayOrange");
-        LanguageRegistry.addName(monorailNether, "Nether Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailNether, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailNether, "monorailNether");
-        LanguageRegistry.addName(monorailObsidian, "Obsidian Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailObsidian, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailObsidian, "monorailObsidian");
-        LanguageRegistry.addName(monorailRedGreen, "Red-Green Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailRedGreen, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailRedGreen, "monorailRedGreen");
-        LanguageRegistry.addName(monorailYellowBlue, "Yellow-Blue Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailYellowBlue, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailYellowBlue, "monorailYellowBlue");
-        LanguageRegistry.addName(monorailEmerald, "Emerald Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailEmerald, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailEmerald, "monorailEmerald");
-        LanguageRegistry.addName(monorailLapis, "Lapis Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailLapis, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailLapis, "monorailLapis");
-        LanguageRegistry.addName(monorailGold, "Gold Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailGold, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailGold, "monorailGold");
-        LanguageRegistry.addName(monorailPowered, "Powered Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailPowered, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailPowered, "monorailPowered");
-        LanguageRegistry.addName(monorailIce, "Ice Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailIce, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailIce, "monorailIce");
-        LanguageRegistry.addName(monorailChain, "Chain Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailChain, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailChain, "monorailChain");
-        LanguageRegistry.addName(monorailArmed, "Armed Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailArmed, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailArmed, "monorailArmed");
-        LanguageRegistry.addName(monorailEnderPearl, "Ender Pearl Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailEnderPearl, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailEnderPearl, "monorailEnderPearl");
-        //Mono Wool Rails//
-        LanguageRegistry.addName(monorailWhite, "White Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailWhite, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailWhite, "monorailWhite");
-        LanguageRegistry.addName(monorailOrange, "Orange Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailOrange, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailOrange, "monorailOrange");
-        LanguageRegistry.addName(monorailMagenta, "Magenta Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailMagenta, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailMagenta, "monorailMagenta");
-        LanguageRegistry.addName(monorailLightblue, "LightBlue Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailLightblue, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailLightblue, "monorailLightblue");
-        LanguageRegistry.addName(monorailYellow, "Yellow Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailYellow, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailYellow, "monorailYellow");
-        LanguageRegistry.addName(monorailLime, "Lime Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailLime, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailLime, "monorailLime");
-        LanguageRegistry.addName(monorailPink, "Pink Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailPink, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailPink, "monorailPink");
-        LanguageRegistry.addName(monorailGray, "Gray Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailGray, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailGray, "monorailGray");
-        LanguageRegistry.addName(monorailLightgray, "LightGray Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailLightgray, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailLightgray, "monorailLightgray");
-        LanguageRegistry.addName(monorailCyan, "Cyan Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailCyan, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailCyan, "monorailCyan");
-        LanguageRegistry.addName(monorailPurple, "Purple Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailPurple, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailPurple, "monorailPurple");
-        LanguageRegistry.addName(monorailBlue, "Blue Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailBlue, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailBlue, "monorailBlue");
-        LanguageRegistry.addName(monorailBrown, "Brown Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailBrown, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailBrown, "monorailBrown");
-        LanguageRegistry.addName(monorailGreen, "Green Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailGreen, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailGreen, "monorailGreen");
-        LanguageRegistry.addName(monorailRed, "Red Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailRed, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailRed, "monorailRed");
-        LanguageRegistry.addName(monorailBlack, "Black Monorail");
-        //MinecraftForge.setBlockHarvestLevel(monorailBlack, "pickaxe", 0);
-        GameRegistry.registerBlock(monorailBlack, "monorailBlack");
-        //Triplerail//
-        LanguageRegistry.addName(triplerailDiamond, "Diamond Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailDiamond, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailDiamond, "triplerailDiamond");
-        LanguageRegistry.addName(triplerailGlowing, "Glowing Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailGlowing, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailGlowing, "triplerailGlowing");
-        LanguageRegistry.addName(triplerailNether, "Nether Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailNether, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailNether, "triplerailNether");
-        LanguageRegistry.addName(triplerailObsidian, "Obsidian Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailObsidian, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailObsidian, "triplerailObsidian");
-        LanguageRegistry.addName(triplerailEmerald, "Emerald Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailEmerald, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailEmerald, "triplerailEmerald");
-        LanguageRegistry.addName(triplerailLapis, "Lapis Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailLapis, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailLapis, "triplerailLapis");
-        LanguageRegistry.addName(triplerailPowered, "Powered Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailPowered, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailPowered, "triplerailPowered");
-        LanguageRegistry.addName(triplerailIce, "Ice Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailIce, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailIce, "triplerailIce");
-        LanguageRegistry.addName(triplerailChain, "Chain Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailChain, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailChain, "triplerailChain");
-        LanguageRegistry.addName(triplerailArmed, "Armed Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailArmed, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailArmed, "triplerailArmed");
-        LanguageRegistry.addName(triplerailEnderPearl, "Ender Pearl Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailEnderPearl, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailEnderPearl, "triplerailEnderPearl");
-        //Triple Wool Rails//
-        LanguageRegistry.addName(triplerailWhite, "White Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailWhite, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailWhite, "triplerailWhite");
-        LanguageRegistry.addName(triplerailOrange, "Orange Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailOrange, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailOrange, "triplerailOrange");
-        LanguageRegistry.addName(triplerailMagenta, "Magenta Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailMagenta, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailMagenta, "triplerailMagenta");
-        LanguageRegistry.addName(triplerailLightblue, "LightBlue Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailLightblue, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailLightblue, "triplerailLightblue");
-        LanguageRegistry.addName(triplerailYellow, "Yellow Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailYellow, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailYellow, "triplerailYellow");
-        LanguageRegistry.addName(triplerailLime, "Lime Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailLime, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailLime, "triplerailLime");
-        LanguageRegistry.addName(triplerailPink, "Pink Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailPink, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailPink, "triplerailPink");
-        LanguageRegistry.addName(triplerailGray, "Gray Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailGray, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailGray, "triplerailGray");
-        LanguageRegistry.addName(triplerailLightgray, "LightGray Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailLightgray, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailLightgray, "triplerailLightgray");
-        LanguageRegistry.addName(triplerailCyan, "Cyan Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailCyan, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailCyan, "triplerailCyan");
-        LanguageRegistry.addName(triplerailPurple, "Purple Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailPurple, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailPurple, "triplerailPurple");
-        LanguageRegistry.addName(triplerailBlue, "Blue Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailBlue, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailBlue, "triplerailBlue");
-        LanguageRegistry.addName(triplerailBrown, "Brown Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailBrown, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailBrown, "triplerailBrown");
-        LanguageRegistry.addName(triplerailGreen, "Green Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailGreen, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailGreen, "triplerailGreen");
-        LanguageRegistry.addName(triplerailRed, "Red Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailRed, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailRed, "triplerailRed");
-        LanguageRegistry.addName(triplerailBlack, "Black Triplerail");
-        //MinecraftForge.setBlockHarvestLevel(triplerailBlack, "pickaxe", 0);
-        GameRegistry.registerBlock(triplerailBlack, "triplerailBlack");
-        
-        LanguageRegistry.addName(railsCraftingTable, "Rails Crafting Table");
-        GameRegistry.registerBlock(railsCraftingTable, "railsCraftingTable");
-        
-        //LanguageRegistry.addName(railBrake, "Rail Brake");
-        //GameRegistry.registerBlock(railBrake, "railBrake");
         
         NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
         
-        //Item Registering//
-        LanguageRegistry.addName(obsidianBar, "Obsidian Bar");
         GameRegistry.registerItem(obsidianBar, "obsidianBar");
-        LanguageRegistry.addName(emeraldBar, "Emerald Bar");
+        if(event.getSide() == Side.CLIENT) {
+        	// register renderer for an item. this is usually in the client proxy
+        	Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+					.register(obsidianBar, 0, 
+					new ModelResourceLocation(modid+":"+"obsidianBar", "inventory"));
+        }
+        
         GameRegistry.registerItem(emeraldBar, "emeraldBar");
-        LanguageRegistry.addName(diamondBar, "Diamond Bar");
         GameRegistry.registerItem(diamondBar, "diamondBar");
-        LanguageRegistry.addName(lapisBar, "Lapis Lazuli Bar");
         GameRegistry.registerItem(lapisBar, "lapisBar");
-        LanguageRegistry.addName(explosiveBar, "Explosive Bar");
         GameRegistry.registerItem(explosiveBar, "explosiveBar");
-        LanguageRegistry.addName(ironNail, "Iron Nail");
         GameRegistry.registerItem(ironNail, "ironNail");
-        LanguageRegistry.addName(goldNail, "Gold Nail");
         GameRegistry.registerItem(goldNail, "goldNail");
-        LanguageRegistry.addName(diamondNail, "Diamond Nail");
         GameRegistry.registerItem(diamondNail, "diamondNail");
-        LanguageRegistry.addName(emeraldNail, "Emerald Nail");
-        GameRegistry.registerItem(emeraldNail, "emeraldNail");
-        LanguageRegistry.addName(obsidianNail, "Obsidian Nail");
+        GameRegistry.registerItem(emeraldNail, "emeraldNail");;
         GameRegistry.registerItem(obsidianNail, "obsidianNail");
-        LanguageRegistry.addName(netherrackNail, "Netherrack Nail");
         GameRegistry.registerItem(netherrackNail, "netherrackNail");
-        LanguageRegistry.addName(woolenNail, "Woolen Nail");
         GameRegistry.registerItem(woolenNail, "woolenNail");
-        LanguageRegistry.addName(netherIngot, "Netherrack Ingot");
         GameRegistry.registerItem(netherIngot, "netherIngot");
-        LanguageRegistry.addName(railIronBase, "Iron Rail Base");
         GameRegistry.registerItem(railIronBase, "railIronBase");
-        LanguageRegistry.addName(railDiamondBase, "Diamond Rail Base");
         GameRegistry.registerItem(railDiamondBase, "railDiamondBase");
-        LanguageRegistry.addName(railObsidianBase, "Obsidian Rail Base");
         GameRegistry.registerItem(railObsidianBase, "railObsidianBase");
-        LanguageRegistry.addName(railNetherrackBase, "Nether Rail Base");
         GameRegistry.registerItem(railNetherrackBase, "railNetherrackBase");
-        LanguageRegistry.addName(railEmeraldBase, "Emerald Rail Base");
         GameRegistry.registerItem(railEmeraldBase, "railEmeraldBase");
-        LanguageRegistry.addName(railLapisBase, "Lapis Lazuli Rail Base");
         GameRegistry.registerItem(railLapisBase, "railLapisBase");
-        LanguageRegistry.addName(railGoldBase, "Golden Rail Base");
         GameRegistry.registerItem(railGoldBase, "railGoldBase");
-        LanguageRegistry.addName(railChainBase, "Chain Rail Base");
         GameRegistry.registerItem(railChainBase, "railChainBase");
-        LanguageRegistry.addName(railArmedBase, "Armed Rail Base");
         GameRegistry.registerItem(railArmedBase, "railArmedBase");
-        LanguageRegistry.addName(railIceBase, "Ice Rail Base");
-        GameRegistry.registerItem(railIceBase, "railIceBase");
-        LanguageRegistry.addName(railEnderPearlBase, "Ender Pearl Rail Base");
+        GameRegistry.registerItem(railIceBase, "railIceBase"););
         GameRegistry.registerItem(railEnderPearlBase, "railEnderPearlBase");
-        LanguageRegistry.addName(obsidianChunk, "Obsidian Chunk");
         GameRegistry.registerItem(obsidianChunk, "obsidianChunk");
-        LanguageRegistry.addName(minecartWhite, "Minecart White");
         GameRegistry.registerItem(minecartWhite, "minecartWhite");
-        //LanguageRegistry.addName(minecartOrange, "Minecart Orange");
-        //GameRegistry.registerItem(minecartOrange, "minecartOrange");
-        //LanguageRegistry.addName(minecartMagenta, "Minecart Magenta");
-        //GameRegistry.registerItem(minecartMagenta, "minecartMagenta");
-        //LanguageRegistry.addName(minecartLightblue, "Minecart Lightblue");
-        //GameRegistry.registerItem(minecartLightblue, "minecartLightblue");
-        //LanguageRegistry.addName(minecartYellow, "Minecart Yellow");
-        //GameRegistry.registerItem(minecartYellow, "minecartYellow");
-        //LanguageRegistry.addName(minecartLime, "Minecart Lime");
-        //GameRegistry.registerItem(minecartLime, "minecartLime");
-        //LanguageRegistry.addName(minecartPink, "Minecart Pink");
-        //GameRegistry.registerItem(minecartPink, "minecartPink");
-        //LanguageRegistry.addName(minecartGray, "Minecart Gray");
-        //GameRegistry.registerItem(minecartGray, "minecartGray");
-        //LanguageRegistry.addName(minecartLightgray, "Minecart Lightgray");
-        //GameRegistry.registerItem(minecartLightgray, "minecartLightgray");
-        //LanguageRegistry.addName(minecartCyan, "Minecart Cyan");
-        //GameRegistry.registerItem(minecartCyan, "minecartCyan");
-        //LanguageRegistry.addName(minecartPurple, "Minecart Purple");
-        //GameRegistry.registerItem(minecartPurple, "minecartPurple");
-        //LanguageRegistry.addName(minecartBlue, "Minecart Blue");
-        //GameRegistry.registerItem(minecartBlue, "minecartBlue");
-        //LanguageRegistry.addName(minecartBrown, "Minecart Brown");
-        //GameRegistry.registerItem(minecartBrown, "minecartBrown");
-        //LanguageRegistry.addName(minecartGreen, "Minecart Green");
-        //GameRegistry.registerItem(minecartGreen, "minecartGreen");
-        //LanguageRegistry.addName(minecartRed, "Minecart Red");
-        //GameRegistry.registerItem(minecartRed, "minecartRed");
-        //LanguageRegistry.addName(minecartBlack, "Minecart Black");
-        //GameRegistry.registerItem(minecartBlack, "minecartBlack");
+        
         
         //Tile Entity Registering//
         
@@ -638,7 +357,6 @@ public class ERMBase
         GameRegistry.addRecipe(new ItemStack(Blocks.ice, 16), " x ", "xyx", " x ", 'x', Stacks.snowStack, 'y', Stacks.waterBucketStack);
         GameRegistry.addShapelessRecipe(new ItemStack(obsidianChunk, 4), Stacks.obsidianStack, Stacks.cobblestoneStack);
         //Tabs
-        LanguageRegistry.instance().addStringLocalization("itemGroup.tabNormalRails", "en_US", "Normal Rails");
         whiteWoolRail.setCreativeTab(this.tabNormalRails);
         orangeWoolRail.setCreativeTab(this.tabNormalRails);
         magentaWoolRail.setCreativeTab(this.tabNormalRails);
@@ -668,7 +386,6 @@ public class ERMBase
         diamondObsidianRail.setCreativeTab(this.tabNormalRails);
         brickRail.setCreativeTab(this.tabNormalRails);
         netherStarRail.setCreativeTab(this.tabNormalRails);
-        LanguageRegistry.instance().addStringLocalization("itemGroup.tabMonoRails", "en_US", "Mono Rails");
         monorailWhite.setCreativeTab(this.tabMonoRails);
         monorailOrange.setCreativeTab(this.tabMonoRails);
         monorailMagenta.setCreativeTab(this.tabMonoRails);
@@ -700,7 +417,6 @@ public class ERMBase
         monorailRedGreen.setCreativeTab(this.tabMonoRails);
         monorailYellowBlue.setCreativeTab(this.tabMonoRails);
         monorailGrayOrange.setCreativeTab(this.tabMonoRails);
-        LanguageRegistry.instance().addStringLocalization("itemGroup.tabTripleRails", "en_US", "Triple Rails");
         triplerailWhite.setCreativeTab(this.tabTripleRails);
         triplerailOrange.setCreativeTab(this.tabTripleRails);
         triplerailMagenta.setCreativeTab(this.tabTripleRails);
@@ -730,6 +446,11 @@ public class ERMBase
         triplerailNether.setCreativeTab(this.tabTripleRails);
         proxy.registerRenderers();
 //GameRegistry.registerTileEntity(TileEntityRailBrakeEntity.class, "railBrake");
+    }
+    
+    private static Block registerBlock(Block b, String assetName){
+    	GameRegistry.registerBlock(b, assetName);
+    	return b;
     }
 
     @EventHandler
