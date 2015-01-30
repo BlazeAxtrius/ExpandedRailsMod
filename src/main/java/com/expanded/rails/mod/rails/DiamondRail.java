@@ -1,7 +1,9 @@
 package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class DiamondRail extends AllRails
@@ -12,7 +14,7 @@ public class DiamondRail extends AllRails
         super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setUnlocalizedName("expandedrails:DiamondRail");
+        setUnlocalizedName("expandedrailsmod:DiamondRail");
         // TODO Auto-generated constructor stub
     }
 
@@ -21,9 +23,9 @@ public class DiamondRail extends AllRails
         return 0.5f;
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
+    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1, int x, int y, int z)
     {
-        int blockMetaData = world.getBlockMetadata(x, y, z);
+        IBlockState blockMetaData = world.getBlockState(pos1);
 
         if ((blockMetaData & 0x8) == 0)
         {

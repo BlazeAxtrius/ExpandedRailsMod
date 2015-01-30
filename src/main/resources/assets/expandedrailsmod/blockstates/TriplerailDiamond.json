@@ -1,0 +1,14 @@
+{
+    "variants": {
+        "shape=north_south": { "model": "ExpandedRailsMod:DiamondTriplerail" },
+        "shape=east_west": { "model": "ExpandedRailsMod:DiamondTriplerail", "y": 90 },
+        "shape=ascending_east": { "model": "ExpandedRailsMod:DiamondTriplerail_ne", "y": 90 },
+        "shape=ascending_west": { "model": "ExpandedRailsMod:DiamondTriplerail_sw", "y": 90 },
+        "shape=ascending_north": { "model": "ExpandedRailsMod:DiamondTriplerail_ne" },
+        "shape=ascending_south": { "model": "ExpandedRailsMod:DiamondTriplerail_sw" },
+        "shape=south_east": { "model": "ExpandedRailsMod:DiamondTriplerail_Turn" },
+        "shape=south_west": { "model": "ExpandedRailsMod:DiamondTriplerail_Turn", "y": 90 },
+        "shape=north_west": { "model": "ExpandedRailsMod:DiamondTriplerail_Turn", "y": 180 },
+        "shape=north_east": { "model": "ExpandedRailsMod:DiamondTriplerail_Turn", "y": 270 }
+    }
+}

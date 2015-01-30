@@ -12,7 +12,7 @@ public class TriplerailDiamond extends AllRails
         super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setUnlocalizedName("expandedrails:DiamondTriplerail");
+        setUnlocalizedName("expandedrailsmod:DiamondTriplerail");
         setBlockBounds(0.0F, 0.0F, 0.0F, 0.500F, 0.125F, 1.0F);
         // TODO Auto-generated constructor stub
     }
