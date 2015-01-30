@@ -40,7 +40,7 @@ import com.expanded.rails.mod.rails.AllRails;
 //import com.expanded.rails.mod.rails.MonorailLapis;
 //import com.expanded.rails.mod.rails.MonorailObsidian;
 //import com.expanded.rails.mod.rails.MonorailPowered;
-//import com.expanded.rails.mod.rails.ObsidianRail;
+import com.expanded.rails.mod.rails.ObsidianRail;
 //import com.expanded.rails.mod.rails.TriplerailArmed;
 //import com.expanded.rails.mod.rails.TriplerailChain;
 //import com.expanded.rails.mod.rails.TriplerailDiamond;
@@ -68,36 +68,24 @@ public class ERMBase
     public static CommonProxy proxy;
 
     public static final CreativeTabs tabNormalRails = new CreativeTabs(modid+"tabNormalRails") {
-        public ItemStack getIconItemStack() {
-                return new ItemStack(ERMBase.diamondRail, 1, 0);
-        }
 
-		@Override
 		public Item getTabIconItem() {
 			// TODO Auto-generated method stub
-			return null;
+			return Item.getItemFromBlock(diamondRail);
 		}
 };
     public static CreativeTabs tabMonoRails = new CreativeTabs(modid+"tabMonoRails") {
-        public ItemStack getIconItemStack() {
-                return new ItemStack(ERMBase.monorailDiamond, 1, 0);
-        }
 
-		@Override
 		public Item getTabIconItem() {
 			// TODO Auto-generated method stub
-			return null;
+			return Item.getItemFromBlock(monorailDiamond);
 		}
 };
 	public static CreativeTabs tabTripleRails = new CreativeTabs(modid+"tabTripleRails") {
-    public ItemStack getIconItemStack() {
-            return new ItemStack(ERMBase.triplerailDiamond, 1, 0);
-    }
 
-	@Override
 	public Item getTabIconItem() {
 		// TODO Auto-generated method stub
-		return null;
+		return Item.getItemFromBlock(triplerailDiamond);
 	}
 };
     
@@ -117,7 +105,7 @@ public class ERMBase
     public void load(FMLInitializationEvent event)
     {
         //Custom Blocks//
-        //obsidianRail = new ObsidianRail(3001).setUnlocalizedName("obsidianRail");
+        obsidianRail = new ObsidianRail(3001).setUnlocalizedName("obsidianRail");
         //diamondRail = new DiamondRail(3002).setUnlocalizedName("diamondRail");
         //lapisRail = new LapisRail(3003).setUnlocalizedName("lapisRail");
         //iceRail = new IceRail(3004).setUnlocalizedName("iceRail");
@@ -253,9 +241,9 @@ public class ERMBase
         //minecartRed = new ExpandedItem(minecartRedID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartRed");//setTextureName("expandedrails:MinecartRed");
         //minecartBlack = new ExpandedItem(minecartBlackID).setCreativeTab(CreativeTabs.tabTransport).setUnlocalizedName("minecartBlack");//setTextureName("expandedrails:MinecartBlack");
         //Block Registering//
-        //LanguageRegistry.addName(obsidianRail, "Obsidian Rail");
+        LanguageRegistry.addName(obsidianRail, "Obsidian Rail");
         //MinecraftForge.setBlockHarvestLevel(obsidianRail, "pickaxe", 0);
-        //GameRegistry.registerBlock(obsidianRail, "obsidianRail");
+        GameRegistry.registerBlock(obsidianRail, "obsidianRail");
         //LanguageRegistry.addName(lapisRail, "Lapis Lazuli Rail");
         //MinecraftForge.setBlockHarvestLevel(lapisRail, "pickaxe", 0);
         //GameRegistry.registerBlock(lapisRail, "lapisRail");
@@ -686,7 +674,7 @@ public class ERMBase
         blackWoolRail.setCreativeTab(this.tabNormalRails);
         //diamondRail.setCreativeTab(this.tabNormalRails);
         //emeraldRail.setCreativeTab(this.tabNormalRails);
-        //obsidianRail.setCreativeTab(this.tabNormalRails);
+        obsidianRail.setCreativeTab(this.tabNormalRails);
         //lapisRail.setCreativeTab(this.tabNormalRails);
         //glowstoneRail.setCreativeTab(this.tabNormalRails);
         //enderPearlRail.setCreativeTab(this.tabNormalRails);
@@ -759,7 +747,10 @@ public class ERMBase
         triplerailNether.setCreativeTab(this.tabTripleRails);
         proxy.registerRenderers();
 //GameRegistry.registerTileEntity(TileEntityRailBrakeEntity.class, "railBrake");
-    }
+        
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(blueWoolRail), 0,new ModelResourceLocation(modid+":"+"blueWoolRail", "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(obsidianRail), 0,new ModelResourceLocation(modid+":"+"obsidianRail", "inventory"));
+        }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
