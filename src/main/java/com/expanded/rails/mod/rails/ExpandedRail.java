@@ -1,17 +1,11 @@
 package com.expanded.rails.mod.rails;
 
-import com.expanded.rails.mod.ERMBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 
 public class ExpandedRail extends BlockRail
 {
-    public ExpandedRail()
+    public ExpandedRail(int par1)
     {
         super();
         setHardness(0.7F);

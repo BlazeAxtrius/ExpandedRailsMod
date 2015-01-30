@@ -1,23 +1,17 @@
 package com.expanded.rails.mod.rails;
 
-import com.expanded.rails.mod.rails.AllRails;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRail;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class TriplerailEnderPearl extends AllRails
 {
-    public IIcon theIcon;
 
     public TriplerailEnderPearl(int par1)
     {
         super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setBlockTextureName("expandedrails:EnderPearlTriplerail");
+        setUnlocalizedName("expandedrails:EnderPearlTriplerail");
         setBlockBounds(0.0F, 0.0F, 0.0F, 0.500F, 0.125F, 1.0F);
         // TODO Auto-generated constructor stub
     }

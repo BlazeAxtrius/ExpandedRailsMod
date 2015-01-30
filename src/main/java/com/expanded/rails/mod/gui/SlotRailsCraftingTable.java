@@ -103,7 +103,7 @@ public class SlotRailsCraftingTable extends Slot
             //this.thePlayer.addStat(AchievementList.bookcase, 1);
         //}
     }
-    @SubscribeEvent
+    @net.minecraftforge.fml.common.eventhandler.SubscribeEvent
     public void onItemCraftedEvent(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack)
     {
         //ItemCraftedEvent.onCrafting(par1EntityPlayer, par2ItemStack, craftMatrix);

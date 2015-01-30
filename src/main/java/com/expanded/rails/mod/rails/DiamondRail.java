@@ -1,22 +1,18 @@
 package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRail;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class DiamondRail extends AllRails
 {
-    public IIcon theIcon;
 
     public DiamondRail(int par1)
     {
         super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setBlockTextureName("expandedrails:DiamondRail");
+        setUnlocalizedName("expandedrails:DiamondRail");
         // TODO Auto-generated constructor stub
     }
 

@@ -13,6 +13,6 @@ public class ItemFrameGreen extends EntityItemFrame
     public ItemFrameGreen(World par1World, int par2, int par3, int par4,
                           int par5)
     {
-        super(par1World, par2, par3, par4, par5);
+        super(par1World);
     }
 }

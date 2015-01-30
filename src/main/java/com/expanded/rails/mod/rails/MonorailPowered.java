@@ -1,24 +1,23 @@
 package com.expanded.rails.mod.rails;
 
-import com.expanded.rails.mod.ERMBase;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailPowered;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class MonorailPowered extends BlockRailPowered {
-	public IIcon theIcon;
+import com.expanded.rails.mod.ERMBase;
+
+public class MonorailPowered extends BlockRailPowered
+{
+
 	
     public MonorailPowered(int par1)
     {
         super();
-        setBlockTextureName("monorailPowered");
+        setUnlocalizedName("monorailPowered");
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setBlockTextureName("expandedrails:MonorailPowered");
+        setUnlocalizedName("expandedrails:MonorailPowered");
         // TODO Auto-generated constructor stub
     }
 

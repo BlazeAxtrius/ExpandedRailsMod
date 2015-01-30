@@ -13,7 +13,7 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
     private ItemStack recipeItems[];
     private ItemStack recipeOutput;
     public final ItemStack recipeOutputItemID;
-    //private boolean field_92101_f;
+    private boolean field_92101_f;
     private static final String __OBFID = "CL_00000093";
 
     public RailsCraftingTableShapedRecipes(int i, int j, ItemStack aitemstack[], ItemStack itemstack)
@@ -33,9 +33,9 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
     @Override
     public boolean matches(InventoryCrafting inventorycrafting, World world)
     {
-        for (int i = 0; i <= 4 - recipeWidth; i++)
+        for (int i = 0; i <= 4 - recipeWidth; ++i)
         {
-            for (int j = 0; j <= 5 - recipeHeight; j++)
+            for (int j = 0; j <= 5 - recipeHeight; ++j)
             {
                 if (this.func_21137_a(inventorycrafting, i, j, true))
                 {
@@ -54,10 +54,10 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
 
     private boolean func_21137_a(InventoryCrafting inventorycrafting, int i, int j, boolean flag)
     {
-        for (int k = 0; k < 4; k++)
+        for (int k = 0; k < 5; ++k)
         {
             //from 4 to 5//
-            for (int l = 0; l < 5; l++)
+            for (int l = 0; l < 5; ++l)
             {
                 int i1 = k - i;
                 int j1 = l - j;
@@ -100,47 +100,47 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
         return true;
     }
 
-    //public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting)
-    //{
-        //ItemStack itemstack = this.getRecipeOutput().copy();
+    public ItemStack getCraftingResult(InventoryCrafting par1InventoryCrafting)
+    {
+        ItemStack itemstack = this.getRecipeOutput().copy();
 
-        //if (this.field_92101_f)
-        //{
-            //for (int i = 0; i < par1InventoryCrafting.getSizeInventory(); ++i)
-            //{
-                //ItemStack itemstack1 = par1InventoryCrafting.getStackInSlot(i);
+        if (this.field_92101_f)
+        {
+            for (int i = 0; i < par1InventoryCrafting.getSizeInventory(); ++i)
+            {
+                ItemStack itemstack1 = par1InventoryCrafting.getStackInSlot(i);
 
-                //if (itemstack1 != null && itemstack1.hasTagCompound())
-                //{
-                    //itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
-                //}
-            //}
-        //}
+                if (itemstack1 != null && itemstack1.hasTagCompound())
+                {
+                    itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
+                }
+            }
+        }
 
-        //return itemstack;
-    //}
+        return itemstack;
+    }
 
     /**
 * Returns the size of the recipe area
 */
-    //public int getRecipeSize()
-    //{
-        //return this.recipeWidth * this.recipeHeight;
-    //}
-
-    //public RailsCraftingTableShapedRecipes func_92100_c()
-    //{
-        //this.field_92101_f = true;
-        //return this;
-    //}
-    
-    public ItemStack getCraftingResult(InventoryCrafting inventorycrafting)
-    {
-        return new ItemStack(recipeOutput.getItem(), recipeOutput.stackSize, recipeOutput.getItemDamage());
-    }
-
     public int getRecipeSize()
     {
-        return recipeWidth * recipeHeight;
+        return this.recipeWidth * this.recipeHeight;
     }
+
+    public RailsCraftingTableShapedRecipes func_92100_c()
+    {
+        this.field_92101_f = true;
+        return this;
+    }
+    
+    //public ItemStack getCraftingResult(InventoryCrafting inventorycrafting)
+    //{
+        //return new ItemStack(recipeOutput.getItem(), recipeOutput.stackSize, recipeOutput.getItemDamage());
+    //}
+
+    //public int getRecipeSize()
+    //{
+        //return recipeWidth * recipeHeight;
+    //}
 }
