@@ -2,24 +2,21 @@ package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRailPowered;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.expanded.rails.mod.ERMBase;
 
 public class TriplerailPowered extends BlockRailPowered
 {
-	public IIcon theIcon;
 	
     public TriplerailPowered(int par1)
     {
         super();
-        setBlockTextureName("TriplerailPowered");
+        setUnlocalizedName("TriplerailPowered");
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setBlockTextureName("expandedrails:TriplerailPowered");
+        setUnlocalizedName("expandedrails:TriplerailPowered");
         // TODO Auto-generated constructor stub
     }
 

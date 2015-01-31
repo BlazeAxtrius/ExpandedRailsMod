@@ -21,8 +21,8 @@ import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
 
 import com.expanded.rails.mod.normalrails.*;
-//import com.expanded.rails.mod.blocks.RailsCraftingTable;
-//import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
+import com.expanded.rails.mod.blocks.RailsCraftingTable;
+import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
 import com.expanded.rails.mod.rails.AllRails;
 import com.expanded.rails.mod.rails.ArmedRail;
 import com.expanded.rails.mod.rails.ChainRail;
@@ -33,24 +33,23 @@ import com.expanded.rails.mod.rails.GlowstoneRail;
 import com.expanded.rails.mod.rails.IceRail;
 import com.expanded.rails.mod.rails.LapisRail;
 import com.expanded.rails.mod.rails.MonorailArmed;
-//import com.expanded.rails.mod.rails.MonorailChain;
+import com.expanded.rails.mod.rails.MonorailChain;
 import com.expanded.rails.mod.rails.MonorailDiamond;
-//import com.expanded.rails.mod.rails.MonorailEmerald;
-//import com.expanded.rails.mod.rails.MonorailEnderPearl;
-//import com.expanded.rails.mod.rails.MonorailGlowing;
-//import com.expanded.rails.mod.rails.MonorailIce;
-//import com.expanded.rails.mod.rails.MonorailLapis;
-//import com.expanded.rails.mod.rails.MonorailObsidian;
-//import com.expanded.rails.mod.rails.MonorailPowered;
+import com.expanded.rails.mod.rails.MonorailEmerald;
+import com.expanded.rails.mod.rails.MonorailEnderPearl;
+import com.expanded.rails.mod.rails.MonorailGlowing;
+import com.expanded.rails.mod.rails.MonorailIce;
+import com.expanded.rails.mod.rails.MonorailLapis;
+import com.expanded.rails.mod.rails.MonorailPowered;
 import com.expanded.rails.mod.rails.TriplerailArmed;
-//import com.expanded.rails.mod.rails.TriplerailChain;
+import com.expanded.rails.mod.rails.TriplerailChain;
 import com.expanded.rails.mod.rails.TriplerailDiamond;
-//import com.expanded.rails.mod.rails.TriplerailEmerald;
-//import com.expanded.rails.mod.rails.TriplerailEnderPearl;
-//import com.expanded.rails.mod.rails.TriplerailGlowing;
-//import com.expanded.rails.mod.rails.TriplerailIce;
-//import com.expanded.rails.mod.rails.TriplerailLapis;
-//import com.expanded.rails.mod.rails.TriplerailPowered;
+import com.expanded.rails.mod.rails.TriplerailEmerald;
+import com.expanded.rails.mod.rails.TriplerailEnderPearl;
+import com.expanded.rails.mod.rails.TriplerailGlowing;
+import com.expanded.rails.mod.rails.TriplerailIce;
+import com.expanded.rails.mod.rails.TriplerailLapis;
+import com.expanded.rails.mod.rails.TriplerailPowered;
 //import expanded.rails.mod.entity.TileEntityRailBrake;
 //import expanded.rails.mod.entity.TileEntityRailBrakeEntity;
 
@@ -100,7 +99,7 @@ public class ERMBase
     public static Block triplerailDiamond, triplerailGlowing, triplerailGrayOrange, triplerailNether, triplerailObsidian, triplerailRedGreen, triplerailYellowBlue, triplerailEmerald, triplerailLapis, triplerailPowered, triplerailIce, triplerailChain, triplerailArmed, triplerailEnderPearl;
     public static Item minecartWhite, minecartOrange, minecartMagenta, minecartLightblue, minecartYellow, minecartLime, minecartPink, minecartGray, minecartLightgray, minecartCyan, minecartPurple, minecartBlue, minecartBrown, minecartGreen, minecartRed, minecartBlack;
     public static Item emeraldBar, diamondBar, obsidianBar, lapisBar, explosiveBar, ironNail, goldNail, diamondNail, emeraldNail, obsidianNail, netherrackNail, woolenNail, netherIngot, railIronBase, railDiamondBase, railObsidianBase, railNetherrackBase, railEmeraldBase, railLapisBase, railGoldBase, railArmedBase, railChainBase, railIceBase, railEnderPearlBase, obsidianChunk;
-    //private GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable();
+    private GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable();
 
     @EventHandler
     public void load(FMLInitializationEvent event)
@@ -119,36 +118,36 @@ public class ERMBase
         enderPearlRail = new EnderPearlRail(3011).setUnlocalizedName("enderPearlRail");
         chainRail = new ChainRail(3012).setUnlocalizedName("chainRail");
         armedRail = new ArmedRail(3013).setUnlocalizedName("armedRail");
-        //railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraftingTable");
+        railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraftingTable");
 //railBrake = new TileEntityRailBrake(railBrakeID, Material.rock).setUnlocalizedName("railBrake");
         //Monorail//
         monorailDiamond = new MonorailDiamond(3128).setUnlocalizedName("monorailDiamond");
-        //monorailGlowing = new MonorailGlowing(3130).setUnlocalizedName("monorailGlowing");
+        monorailGlowing = new MonorailGlowing(3130).setUnlocalizedName("monorailGlowing");
         monorailGrayOrange = new AllRails(3136).setUnlocalizedName("monorailGrayOrange");//setBlockTextureName("expandedrails:GrayOrangeMonorail");
         monorailNether = new AllRails(3131).setUnlocalizedName("monorailNether");//setBlockTextureName("expandedrails:NetherMonorail");
         monorailObsidian = new MonorailObsidian(3129).setUnlocalizedName("monorailObsidian");
         monorailRedGreen = new AllRails(3134).setUnlocalizedName("monorailRedGreen");//setBlockTextureName("expandedrails:RedGreenMonorail");
         monorailYellowBlue = new AllRails(3135).setUnlocalizedName("monorailYellowBlue");//setBlockTextureName("expandedrails:YellowBlueMonorail");
-        //monorailEmerald = new MonorailEmerald(3132).setUnlocalizedName("monorailEmerald");
-        //monorailLapis = new MonorailLapis(3133).setUnlocalizedName("monorailLapis");
+        monorailEmerald = new MonorailEmerald(3132).setUnlocalizedName("monorailEmerald");
+        monorailLapis = new MonorailLapis(3133).setUnlocalizedName("monorailLapis");
         monorailGold = new AllRails(3137).setUnlocalizedName("monorailGold");//setBlockTextureName("expandedrails:GoldMonorail");
-        //monorailPowered = new MonorailPowered(3138).setUnlocalizedName("monorailPowered");
-        //monorailIce = new MonorailIce(3139).setUnlocalizedName("monorailIce");
-        //monorailChain = new MonorailChain(3140).setUnlocalizedName("monorailChain");
+        monorailPowered = new MonorailPowered(3138).setUnlocalizedName("monorailPowered");
+        monorailIce = new MonorailIce(3139).setUnlocalizedName("monorailIce");
+        monorailChain = new MonorailChain(3140).setUnlocalizedName("monorailChain");
         monorailArmed = new MonorailArmed(3141).setUnlocalizedName("monorailArmed");
-        //monorailEnderPearl = new MonorailEnderPearl(3142).setUnlocalizedName("monorailEnderPearl");
+        monorailEnderPearl = new MonorailEnderPearl(3142).setUnlocalizedName("monorailEnderPearl");
         //Triplerail//
         triplerailDiamond = new TriplerailDiamond(3185).setUnlocalizedName("triplerailDiamond");//setBlockTextureName("expandedrails:DiamondTriplerail");
-        //triplerailGlowing = new TriplerailGlowing(3186).setUnlocalizedName("triplerailGlowing");//setBlockTextureName("expandedrails:GlowTriplerail");
+        triplerailGlowing = new TriplerailGlowing(3186).setUnlocalizedName("triplerailGlowing");//setBlockTextureName("expandedrails:GlowTriplerail");
         triplerailNether = new AllRails(3187).setUnlocalizedName("triplerailNether");//setBlockTextureName("expandedrails:NetherTriplerail");
         triplerailObsidian = new AllRails(3188).setUnlocalizedName("triplerailObsidian");//setBlockTextureName("expandedrails:ObsidianTriplerail");
-        //triplerailEmerald = new TriplerailEmerald(3189).setUnlocalizedName("triplerailEmerald");//setBlockTextureName("expandedrails:EmeraldTriplerail");
-        //triplerailLapis = new TriplerailLapis(3190).setUnlocalizedName("triplerailLapis");//setBlockTextureName("expandedrails:LapisTriplerail");
-        //triplerailPowered = new TriplerailPowered(3191).setUnlocalizedName("triplerailPowered");//setBlockTextureName("expandedrails:TriplerailPowered");
-        //triplerailIce = new TriplerailIce(3192).setUnlocalizedName("triplerailIce");//setBlockTextureName("expandedrails:IceTriplerail");
-        //triplerailChain = new TriplerailChain(3193).setUnlocalizedName("triplerailChain");//setBlockTextureName("expandedrails:ChainTriplerail");
+        triplerailEmerald = new TriplerailEmerald(3189).setUnlocalizedName("triplerailEmerald");//setBlockTextureName("expandedrails:EmeraldTriplerail");
+        triplerailLapis = new TriplerailLapis(3190).setUnlocalizedName("triplerailLapis");//setBlockTextureName("expandedrails:LapisTriplerail");
+        triplerailPowered = new TriplerailPowered(3191).setUnlocalizedName("triplerailPowered");//setBlockTextureName("expandedrails:TriplerailPowered");
+        triplerailIce = new TriplerailIce(3192).setUnlocalizedName("triplerailIce");//setBlockTextureName("expandedrails:IceTriplerail");
+        triplerailChain = new TriplerailChain(3193).setUnlocalizedName("triplerailChain");//setBlockTextureName("expandedrails:ChainTriplerail");
         triplerailArmed = new TriplerailArmed(3194).setUnlocalizedName("triplerailArmed");//setBlockTextureName("expandedrails:ArmedTriplerail");
-        //triplerailEnderPearl = new TriplerailEnderPearl(3195).setUnlocalizedName("triplerailEnderPearl");//setBlockTextureName("expandedrails:EnderPearlTriplerail");
+        triplerailEnderPearl = new TriplerailEnderPearl(3195).setUnlocalizedName("triplerailEnderPearl");//setBlockTextureName("expandedrails:EnderPearlTriplerail");
         //Wool Rails//
         whiteWoolRail = new AllRails(3081).setUnlocalizedName("whiteWoolRail");//setBlockTextureName("expandedrails:WhiteWoolRail");
         orangeWoolRail = new AllRails(3082).setUnlocalizedName("orangeWoolRail");//setBlockTextureName("expandedrails:OrangeWoolRail");
@@ -304,8 +303,8 @@ public class ERMBase
         //Monorail//
         LanguageRegistry.addName(monorailDiamond, "Diamond Monorail");
         GameRegistry.registerBlock(monorailDiamond, "monorailDiamond");
-        //LanguageRegistry.addName(monorailGlowing, "Glowing Monorail");
-        //GameRegistry.registerBlock(monorailGlowing, "monorailGlowing");
+        LanguageRegistry.addName(monorailGlowing, "Glowing Monorail");
+        GameRegistry.registerBlock(monorailGlowing, "monorailGlowing");
         LanguageRegistry.addName(monorailGrayOrange, "Gray-Orange Monorail");
         GameRegistry.registerBlock(monorailGrayOrange, "monorailGrayOrange");
         LanguageRegistry.addName(monorailNether, "Nether Monorail");
@@ -316,22 +315,22 @@ public class ERMBase
         GameRegistry.registerBlock(monorailRedGreen, "monorailRedGreen");
         LanguageRegistry.addName(monorailYellowBlue, "Yellow-Blue Monorail");
         GameRegistry.registerBlock(monorailYellowBlue, "monorailYellowBlue");
-        //LanguageRegistry.addName(monorailEmerald, "Emerald Monorail");
-        //GameRegistry.registerBlock(monorailEmerald, "monorailEmerald");
-        //LanguageRegistry.addName(monorailLapis, "Lapis Monorail");
-        //GameRegistry.registerBlock(monorailLapis, "monorailLapis");
+        LanguageRegistry.addName(monorailEmerald, "Emerald Monorail");
+        GameRegistry.registerBlock(monorailEmerald, "monorailEmerald");
+        LanguageRegistry.addName(monorailLapis, "Lapis Monorail");
+        GameRegistry.registerBlock(monorailLapis, "monorailLapis");
         LanguageRegistry.addName(monorailGold, "Gold Monorail");
         GameRegistry.registerBlock(monorailGold, "monorailGold");
-        //LanguageRegistry.addName(monorailPowered, "Powered Monorail");
-        //GameRegistry.registerBlock(monorailPowered, "monorailPowered");
-        //LanguageRegistry.addName(monorailIce, "Ice Monorail");
-        //GameRegistry.registerBlock(monorailIce, "monorailIce");
-        //LanguageRegistry.addName(monorailChain, "Chain Monorail");
-        //GameRegistry.registerBlock(monorailChain, "monorailChain");
+        LanguageRegistry.addName(monorailPowered, "Powered Monorail");
+        GameRegistry.registerBlock(monorailPowered, "monorailPowered");
+        LanguageRegistry.addName(monorailIce, "Ice Monorail");
+        GameRegistry.registerBlock(monorailIce, "monorailIce");
+        LanguageRegistry.addName(monorailChain, "Chain Monorail");
+        GameRegistry.registerBlock(monorailChain, "monorailChain");
         LanguageRegistry.addName(monorailArmed, "Armed Monorail");
         GameRegistry.registerBlock(monorailArmed, "monorailArmed");
-        //LanguageRegistry.addName(monorailEnderPearl, "Ender Pearl Monorail");
-        //GameRegistry.registerBlock(monorailEnderPearl, "monorailEnderPearl");
+        LanguageRegistry.addName(monorailEnderPearl, "Ender Pearl Monorail");
+        GameRegistry.registerBlock(monorailEnderPearl, "monorailEnderPearl");
         //Mono Wool Rails//
         LanguageRegistry.addName(monorailWhite, "White Monorail");
         GameRegistry.registerBlock(monorailWhite, "monorailWhite");
@@ -368,26 +367,26 @@ public class ERMBase
         //Triplerail//
         LanguageRegistry.addName(triplerailDiamond, "Diamond Triplerail");
         GameRegistry.registerBlock(triplerailDiamond, "triplerailDiamond");
-        //LanguageRegistry.addName(triplerailGlowing, "Glowing Triplerail");
-        //GameRegistry.registerBlock(triplerailGlowing, "triplerailGlowing");
+        LanguageRegistry.addName(triplerailGlowing, "Glowing Triplerail");
+        GameRegistry.registerBlock(triplerailGlowing, "triplerailGlowing");
         LanguageRegistry.addName(triplerailNether, "Nether Triplerail");
         GameRegistry.registerBlock(triplerailNether, "triplerailNether");
         LanguageRegistry.addName(triplerailObsidian, "Obsidian Triplerail");
         GameRegistry.registerBlock(triplerailObsidian, "triplerailObsidian");
-        //LanguageRegistry.addName(triplerailEmerald, "Emerald Triplerail");
-        //GameRegistry.registerBlock(triplerailEmerald, "triplerailEmerald");
-        //LanguageRegistry.addName(triplerailLapis, "Lapis Triplerail");
-        //GameRegistry.registerBlock(triplerailLapis, "triplerailLapis");
-        //LanguageRegistry.addName(triplerailPowered, "Powered Triplerail");
-        //GameRegistry.registerBlock(triplerailPowered, "triplerailPowered");
-        //LanguageRegistry.addName(triplerailIce, "Ice Triplerail");
-        //GameRegistry.registerBlock(triplerailIce, "triplerailIce");
-        //LanguageRegistry.addName(triplerailChain, "Chain Triplerail");
-        //GameRegistry.registerBlock(triplerailChain, "triplerailChain");
+        LanguageRegistry.addName(triplerailEmerald, "Emerald Triplerail");
+        GameRegistry.registerBlock(triplerailEmerald, "triplerailEmerald");
+        LanguageRegistry.addName(triplerailLapis, "Lapis Triplerail");
+        GameRegistry.registerBlock(triplerailLapis, "triplerailLapis");
+        LanguageRegistry.addName(triplerailPowered, "Powered Triplerail");
+        GameRegistry.registerBlock(triplerailPowered, "triplerailPowered");
+        LanguageRegistry.addName(triplerailIce, "Ice Triplerail");
+        GameRegistry.registerBlock(triplerailIce, "triplerailIce");
+        LanguageRegistry.addName(triplerailChain, "Chain Triplerail");
+        GameRegistry.registerBlock(triplerailChain, "triplerailChain");
         LanguageRegistry.addName(triplerailArmed, "Armed Triplerail");
         GameRegistry.registerBlock(triplerailArmed, "triplerailArmed");
-        //LanguageRegistry.addName(triplerailEnderPearl, "Ender Pearl Triplerail");
-        //GameRegistry.registerBlock(triplerailEnderPearl, "triplerailEnderPearl");
+        LanguageRegistry.addName(triplerailEnderPearl, "Ender Pearl Triplerail");
+        GameRegistry.registerBlock(triplerailEnderPearl, "triplerailEnderPearl");
         //Triple Wool Rails//
         LanguageRegistry.addName(triplerailWhite, "White Triplerail");
         GameRegistry.registerBlock(triplerailWhite, "triplerailWhite");
@@ -422,15 +421,15 @@ public class ERMBase
         LanguageRegistry.addName(triplerailBlack, "Black Triplerail");
         GameRegistry.registerBlock(triplerailBlack, "triplerailBlack");
         
-        //LanguageRegistry.addName(railsCraftingTable, "Rails Crafting Table");
-        //GameRegistry.registerBlock(railsCraftingTable, "railsCraftingTable");
+        LanguageRegistry.addName(railsCraftingTable, "Rails Crafting Table");
+        GameRegistry.registerBlock(railsCraftingTable, "railsCraftingTable");
         
         //LanguageRegistry.addName(railBrake, "Rail Brake");
         //GameRegistry.registerBlock(railBrake, "railBrake");
         
         
         
-        //NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
         
         
         
@@ -618,15 +617,15 @@ public class ERMBase
         monorailRed.setCreativeTab(this.tabMonoRails);
         monorailBlack.setCreativeTab(this.tabMonoRails);
         monorailDiamond.setCreativeTab(this.tabMonoRails);
-        //monorailEmerald.setCreativeTab(this.tabMonoRails);
+        monorailEmerald.setCreativeTab(this.tabMonoRails);
         monorailObsidian.setCreativeTab(this.tabMonoRails);
-        //monorailLapis.setCreativeTab(this.tabMonoRails);
-        //monorailGlowing.setCreativeTab(this.tabMonoRails);
-        //monorailEnderPearl.setCreativeTab(this.tabMonoRails);
+        monorailLapis.setCreativeTab(this.tabMonoRails);
+        monorailGlowing.setCreativeTab(this.tabMonoRails);
+        monorailEnderPearl.setCreativeTab(this.tabMonoRails);
         monorailArmed.setCreativeTab(this.tabMonoRails);
-        //monorailChain.setCreativeTab(this.tabMonoRails);
-        //monorailIce.setCreativeTab(this.tabMonoRails);
-        //monorailPowered.setCreativeTab(this.tabMonoRails);
+        monorailChain.setCreativeTab(this.tabMonoRails);
+        monorailIce.setCreativeTab(this.tabMonoRails);
+        monorailPowered.setCreativeTab(this.tabMonoRails);
         monorailGold.setCreativeTab(this.tabMonoRails);
         monorailNether.setCreativeTab(this.tabMonoRails);
         monorailRedGreen.setCreativeTab(this.tabMonoRails);
@@ -650,15 +649,15 @@ public class ERMBase
         triplerailRed.setCreativeTab(this.tabTripleRails);
         triplerailBlack.setCreativeTab(this.tabTripleRails);
         triplerailDiamond.setCreativeTab(this.tabTripleRails);
-        //triplerailEmerald.setCreativeTab(this.tabTripleRails);
+        triplerailEmerald.setCreativeTab(this.tabTripleRails);
         triplerailObsidian.setCreativeTab(this.tabTripleRails);
-        //triplerailLapis.setCreativeTab(this.tabTripleRails);
-        //triplerailGlowing.setCreativeTab(this.tabTripleRails);
-        //triplerailEnderPearl.setCreativeTab(this.tabTripleRails);
+        triplerailLapis.setCreativeTab(this.tabTripleRails);
+        triplerailGlowing.setCreativeTab(this.tabTripleRails);
+        triplerailEnderPearl.setCreativeTab(this.tabTripleRails);
         triplerailArmed.setCreativeTab(this.tabTripleRails);
-        //triplerailChain.setCreativeTab(this.tabTripleRails);
-        //triplerailIce.setCreativeTab(this.tabTripleRails);
-        //triplerailPowered.setCreativeTab(this.tabTripleRails);
+        triplerailChain.setCreativeTab(this.tabTripleRails);
+        triplerailIce.setCreativeTab(this.tabTripleRails);
+        triplerailPowered.setCreativeTab(this.tabTripleRails);
         triplerailNether.setCreativeTab(this.tabTripleRails);
         proxy.registerRenderers();
 //GameRegistry.registerTileEntity(TileEntityRailBrakeEntity.class, "railBrake");

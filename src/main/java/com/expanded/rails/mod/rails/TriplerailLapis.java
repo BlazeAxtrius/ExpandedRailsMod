@@ -2,6 +2,7 @@ package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.expanded.rails.mod.ERMBase;
@@ -20,7 +21,7 @@ public class TriplerailLapis extends AllRails
 
     public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
     {
-        if (world.getBlockState(pos1).getBlock() == ERMBase.monorailLapis)
+        if (world.getBlockState(pos1).getBlock() == ERMBase.triplerailLapis)
         {
             cart.motionY = 1.0D;
         }

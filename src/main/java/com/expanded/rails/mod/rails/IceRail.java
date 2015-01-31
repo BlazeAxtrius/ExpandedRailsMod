@@ -33,9 +33,9 @@ public class IceRail extends AllRails
 
             if (var24 > 0.1D)
             {
-                cart.motionX *= 0.95D;
+                cart.motionX *= 0.90D;
                 cart.motionY *= 0.0D;
-                cart.motionZ *= 0.95D;
+                cart.motionZ *= 0.90D;
             }
         }
     }

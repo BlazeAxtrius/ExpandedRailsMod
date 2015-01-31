@@ -112,7 +112,7 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
 
                 if (itemstack1 != null && itemstack1.hasTagCompound())
                 {
-                    itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
+                    itemstack.setTagCompound((NBTTagCompound)itemstack1.setTagCompound.copy());
                 }
             }
         }
@@ -133,6 +133,12 @@ public class RailsCraftingTableShapedRecipes implements IRecipe
         this.field_92101_f = true;
         return this;
     }
+
+	@Override
+	public ItemStack[] getRemainingItems(InventoryCrafting p_179532_1_) {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     //public ItemStack getCraftingResult(InventoryCrafting inventorycrafting)
     //{

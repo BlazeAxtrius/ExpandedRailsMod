@@ -2,6 +2,7 @@ package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.expanded.rails.mod.ERMBase;

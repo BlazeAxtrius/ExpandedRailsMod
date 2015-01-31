@@ -1,0 +1,14 @@
+{
+    "variants": {
+        "shape=north_south": { "model": "ExpandedRailsMod:BlueWoolRail" },
+        "shape=east_west": { "model": "ExpandedRailsMod:BlueWoolRail", "y": 90 },
+        "shape=ascending_east": { "model": "ExpandedRailsMod:BlueWoolRail_ne", "y": 90 },
+        "shape=ascending_west": { "model": "ExpandedRailsMod:BlueWoolRail_sw", "y": 90 },
+        "shape=ascending_north": { "model": "ExpandedRailsMod:BlueWoolRail_ne" },
+        "shape=ascending_south": { "model": "ExpandedRailsMod:BlueWoolRail_sw" },
+        "shape=south_east": { "model": "ExpandedRailsMod:BlueWoolRail_Turn" },
+        "shape=south_west": { "model": "ExpandedRailsMod:BlueWoolRail_Turn", "y": 90 },
+        "shape=north_west": { "model": "ExpandedRailsMod:BlueWoolRail_Turn", "y": 180 },
+        "shape=north_east": { "model": "ExpandedRailsMod:BlueWoolRail_Turn", "y": 270 }
+    }
+}

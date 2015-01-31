@@ -10,7 +10,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
+
 import com.expanded.rails.mod.ERMBase;
 
 public class ContainerRailsCraftingTable extends Container
@@ -29,6 +31,7 @@ public class ContainerRailsCraftingTable extends Container
     private int posX;
     private int posY;
     private int posZ;
+    private BlockPos field_178145_h;
     public ContainerRailsCraftingTable(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
     {
         this.worldObj = par2World;
@@ -116,7 +119,7 @@ public class ContainerRailsCraftingTable extends Container
 
     public boolean canInteractWith(EntityPlayer par1EntityPlayer)
     {
-        return this.worldObj.getBlock(this.posX, this.posY, this.posZ) != ERMBase.railsCraftingTable ? false : par1EntityPlayer.getDistanceSq((double)this.posX + 0.5D, (double)this.posY + 0.5D, (double)this.posZ + 0.5D) <= 64.0D;
+        return this.worldObj.getBlockState(this.field_178145_h).getBlock() != ERMBase.railsCraftingTable ? false : par1EntityPlayer.getDistanceSq((double)this.posX + 0.5D, (double)this.posY + 0.5D, (double)this.posZ + 0.5D) <= 64.0D;
     }
 
     /*** Called when a player shift-clicks on a slot. You must override this or you will crash when someone does that.*/
@@ -179,8 +182,8 @@ public class ContainerRailsCraftingTable extends Container
         return itemstack;
     }
 
-    public boolean func_94530_a(ItemStack par1ItemStack, Slot par2Slot)
+    public boolean canMergeSlot(ItemStack par1ItemStack, Slot par2Slot)
     {
-        return par2Slot.inventory != this.craftResult && super.func_94530_a(par1ItemStack, par2Slot);
+        return par2Slot.inventory != this.craftResult && super.canMergeSlot(par1ItemStack, par2Slot);
     }
 }
