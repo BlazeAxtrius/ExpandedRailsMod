@@ -23,11 +23,12 @@ public class DiamondRail extends AllRails
         return 0.5f;
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1, int x, int y, int z)
+    @Override
+    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
     {
         IBlockState blockMetaData = world.getBlockState(pos1);
 
-        if ((blockMetaData & 0x8) == 0)
+        //if ((blockMetaData & 0x8) == 0)
         {
             {
                 cart.motionX *= 3.5D;

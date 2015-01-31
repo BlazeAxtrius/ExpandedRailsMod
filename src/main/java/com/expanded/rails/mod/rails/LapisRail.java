@@ -2,6 +2,7 @@ package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.expanded.rails.mod.ERMBase;
@@ -23,9 +24,9 @@ public class LapisRail extends AllRails
         return true;
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
+    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
     {
-        if (world.getBlock(x, y, z) == ERMBase.lapisRail)
+        if (world.getBlockState(pos1).getBlock() == ERMBase.lapisRail)
         {
             cart.motionY = 1.0D;
         }

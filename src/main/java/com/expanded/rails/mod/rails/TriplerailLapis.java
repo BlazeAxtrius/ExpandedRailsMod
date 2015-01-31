@@ -18,9 +18,9 @@ public class TriplerailLapis extends AllRails
         // TODO Auto-generated constructor stub
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
+    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
     {
-        if (world.getBlock(x, y, z) == ERMBase.triplerailLapis)
+        if (world.getBlockState(pos1).getBlock() == ERMBase.monorailLapis)
         {
             cart.motionY = 1.0D;
         }

@@ -20,13 +20,13 @@ public class ArmedRail extends AllRails
         // TODO Auto-generated constructor stub
     }
     
-    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1, int x, int y, int z)
+    public void onMinecartPass(World worldObj, EntityMinecart cart, BlockPos pos1)
     {
-        if (world.getBlockState(pos1).getBlock() == ERMBase.armedRail)
+        if (worldObj.getBlockState(pos1).getBlock() == ERMBase.armedRail)
         {
-            IBlockState blockMetaData = world.getBlockState(pos1);
-            world.createExplosion(cart, x, y, z, 0.3F, false);
-            world.newExplosion(cart, x, y, z, 3.5F, true, true);
+            IBlockState blockMetaData = worldObj.getBlockState(pos1);
+            worldObj.createExplosion(cart, x, y, z, 0.3F, false);
+            worldObj.newExplosion(cart, x, y, z, 3.5F, true, true);
         }
     }
 }

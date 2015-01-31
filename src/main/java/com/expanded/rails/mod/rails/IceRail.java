@@ -1,7 +1,9 @@
 package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class IceRail extends AllRails
@@ -20,11 +22,12 @@ public class IceRail extends AllRails
     {
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
+    @Override
+    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
     {
-        int blockMetaData = world.getBlockMetadata(x, y, z);
+        IBlockState blockMetaData = world.getBlockState(pos1);
 
-        if ((blockMetaData & 0x8) == 0)
+        //if ((blockMetaData & 0x8) == 0)
         {
             double var24 = Math.sqrt(cart.motionX * cart.motionX + cart.motionZ * cart.motionZ);
 

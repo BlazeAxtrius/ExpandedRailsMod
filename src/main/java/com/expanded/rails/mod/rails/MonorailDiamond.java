@@ -2,7 +2,9 @@ package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRail;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class MonorailDiamond extends AllRails
@@ -23,11 +25,12 @@ public class MonorailDiamond extends AllRails
         return 0.5f;
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
+    @Override
+    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
     {
-        int blockMetaData = world.getBlockMetadata(x, y, z);
+        IBlockState blockMetaData = world.getBlockState(pos1);
 
-        if ((blockMetaData & 0x8) == 0)
+        //if ((blockMetaData & 0x8) == 0)
         {
             {
                 cart.motionX *= 3.5D;

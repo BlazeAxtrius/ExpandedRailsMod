@@ -1,7 +1,9 @@
 package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.expanded.rails.mod.ERMBase;
@@ -19,11 +21,12 @@ public class MonorailChain extends AllRails
         // TODO Auto-generated constructor stub
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
+    @Override
+    public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
     {
-        if (world.getBlock(x, y, z) == ERMBase.monorailChain)
+        if (world.getBlockState(pos1).getBlock() == ERMBase.chainRail)
         {
-            int blockMetaData = world.getBlockMetadata(x, y, z);
+            IBlockState blockMetaData = world.getBlockState(pos1);
             double var41 = Math.sqrt(cart.motionX * cart.motionX + cart.motionZ * cart.motionZ);
 
             if (var41 < 0.05D)
