@@ -23,6 +23,11 @@ public class TriplerailIce extends AllRails
     {
         // TODO Auto-generated method stub
     }
+    
+    public float getRailMinSpeed(World world, EntityMinecart cart, int y, int x, int z)
+    {
+        return 0.2f;
+    }
 
     @Override
     public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
@@ -35,9 +40,9 @@ public class TriplerailIce extends AllRails
 
             if (var24 > 0.1D)
             {
-                cart.motionX *= 0.95D;
+                cart.motionX *= 0.80D;
                 cart.motionY *= 0.0D;
-                cart.motionZ *= 0.95D;
+                cart.motionZ *= 0.80D;
             }
         }
     }

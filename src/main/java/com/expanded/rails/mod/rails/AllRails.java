@@ -1,13 +1,16 @@
 package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRail;
 
-public class AllRails extends ExpandedRail
+public class AllRails extends BlockRail
 {
+	
+	public static final String modid = "ExpandedRailsMod";
 	
 	public AllRails (int par1) 
 	{
-	super(par1);
+	super();
     setHardness(0.7F);
     setStepSound(Block.soundTypeMetal);
     }

@@ -12,7 +12,7 @@ public class WhiteWoolRail extends AllRails
         super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeCloth);
-        setUnlocalizedName("expandedrails:WhiteWoolRail");
+        setUnlocalizedName("expandedrails:whiteWoolRail");
         // TODO Auto-generated constructor stub
     }
 

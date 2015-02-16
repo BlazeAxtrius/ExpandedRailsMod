@@ -21,6 +21,11 @@ public class IceRail extends AllRails
     public static void main(String[] args)
     {
     }
+    
+    public float getRailMinSpeed(World world, EntityMinecart cart, int y, int x, int z)
+    {
+        return 0.2f;
+    }
 
     @Override
     public void onMinecartPass(World world, EntityMinecart cart, BlockPos pos1)
@@ -33,9 +38,9 @@ public class IceRail extends AllRails
 
             if (var24 > 0.1D)
             {
-                cart.motionX *= 0.90D;
+                cart.motionX *= 0.80D;
                 cart.motionY *= 0.0D;
-                cart.motionZ *= 0.90D;
+                cart.motionZ *= 0.80D;
             }
         }
     }

@@ -12,4 +12,5 @@ public class ExpandedItem extends Item
         setCreativeTab(CreativeTabs.tabMisc);
         setUnlocalizedName("expandedItem");
     }
+    
 }

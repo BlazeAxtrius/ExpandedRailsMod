@@ -1,6 +1,8 @@
 package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class TriplerailEnderPearl extends AllRails
@@ -11,35 +13,36 @@ public class TriplerailEnderPearl extends AllRails
         super(par1);
         setHardness(0.7F);
         setStepSound(Block.soundTypeMetal);
-        setUnlocalizedName("expandedrails:EnderPearlTriplerail");
-        setBlockBounds(0.0F, 0.0F, 0.0F, 0.500F, 0.125F, 1.0F);
+        setUnlocalizedName("expandedrails:EnderPearlRail");
         // TODO Auto-generated constructor stub
     }
+
     public static void main(String[] args)
     {
         // TODO Auto-generated method stub
     }
 
-    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+    public boolean canPlaceBlockAt(World par1World, BlockPos pos)
     {
-        return !par1World.doesBlockHaveSolidTopSurface(par1World, par2, par3 - 1, par4);
+    	//return !par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4);
+        return !par1World.doesBlockHaveSolidTopSurface(par1World, pos);
     }
 
-    public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, Block par5)
+    @Override
+    //public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
+    public void onNeighborBlockChange(World par1World, BlockPos pos1, IBlockState state, Block par5)
     {
         if (!par1World.isRemote)
         {
-            int i1 = par1World.getBlockMetadata(par2, par3, par4);
-            int j1 = i1;
+            IBlockState i1 = par1World.getBlockState(pos1);
+            IBlockState j1 = i1;
 
-            if (this.isPowered())
-            {
-                j1 = i1 & 7;
-            }
+            //if (this.isPowered)
 
             boolean flag = false;
 
-            if (par1World.doesBlockHaveSolidTopSurface(par1World, par2, par3 - 1, par4))
+            //if (par1World.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4))
+            if (par1World.doesBlockHaveSolidTopSurface(par1World, pos1))
             {
                 flag = true;
             }
@@ -66,12 +69,13 @@ public class TriplerailEnderPearl extends AllRails
 
             if (flag)
             {
-                this.dropBlockAsItem(par1World, par2, par3, par4, par1World.getBlockMetadata(par2, par3, par4), 0);
-                par1World.setBlockToAir(par2, par3, par4);
+                this.dropBlockAsItem(par1World, pos1, par1World.getBlockState(pos1), 0);
+                par1World.setBlockToAir(pos1);
             }
             else
             {
-                this.func_150048_a(par1World, par2, par3, par4, i1, j1, par5);
+            	//this.func_94358_a(par1World, par2, par3, par4, i1, j1, par5);
+                this.onNeighborChangedInternal(par1World, pos1, state, par5);
             }
         }
     }

@@ -1,14 +1,14 @@
 {
     "variants": {
-        "shape=north_south": { "model": "ExpandedRailsMod:NetherTriplerail" },
-        "shape=east_west": { "model": "ExpandedRailsMod:NetherTriplerail", "y": 90 },
-        "shape=ascending_east": { "model": "ExpandedRailsMod:NetherTriplerail_ne", "y": 90 },
-        "shape=ascending_west": { "model": "ExpandedRailsMod:NetherTriplerail_sw", "y": 90 },
-        "shape=ascending_north": { "model": "ExpandedRailsMod:NetherTriplerail_ne" },
-        "shape=ascending_south": { "model": "ExpandedRailsMod:NetherTriplerail_sw" },
-        "shape=south_east": { "model": "ExpandedRailsMod:NetherTriplerail_Turn" },
-        "shape=south_west": { "model": "ExpandedRailsMod:NetherTriplerail_Turn", "y": 90 },
-        "shape=north_west": { "model": "ExpandedRailsMod:NetherTriplerail_Turn", "y": 180 },
-        "shape=north_east": { "model": "ExpandedRailsMod:NetherTriplerail_Turn", "y": 270 }
+        "shape=north_south": { "model": "ExpandedRailsMod:TriplerailNether" },
+        "shape=east_west": { "model": "ExpandedRailsMod:TriplerailNether", "y": 90 },
+        "shape=ascending_east": { "model": "ExpandedRailsMod:TriplerailNether_ne", "y": 90 },
+        "shape=ascending_west": { "model": "ExpandedRailsMod:TriplerailNether_sw", "y": 90 },
+        "shape=ascending_north": { "model": "ExpandedRailsMod:TriplerailNether_ne" },
+        "shape=ascending_south": { "model": "ExpandedRailsMod:TriplerailNether_sw" },
+        "shape=south_east": { "model": "ExpandedRailsMod:TriplerailNether_Turn" },
+        "shape=south_west": { "model": "ExpandedRailsMod:TriplerailNether_Turn", "y": 90 },
+        "shape=north_west": { "model": "ExpandedRailsMod:TriplerailNether_Turn", "y": 180 },
+        "shape=north_east": { "model": "ExpandedRailsMod:TriplerailNether_Turn", "y": 270 }
     }
 }

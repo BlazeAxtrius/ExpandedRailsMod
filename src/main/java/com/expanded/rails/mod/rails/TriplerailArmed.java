@@ -1,7 +1,9 @@
 package com.expanded.rails.mod.rails;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import com.expanded.rails.mod.ERMBase;
@@ -24,13 +26,14 @@ public class TriplerailArmed extends AllRails
         // TODO Auto-generated method stub
     }
 
-    public void onMinecartPass(World world, EntityMinecart cart, int x, int y, int z)
+    @Override
+    public void onMinecartPass(World worldObj, EntityMinecart cart, BlockPos pos)
     {
-        if (world.getBlock(x, y, z) == ERMBase.triplerailArmed)
+        if (worldObj.getBlockState(new BlockPos(pos)).getBlock() == ERMBase.triplerailArmed)
         {
-            int blockMetaData = world.getBlockMetadata(x, y, z);
-            world.createExplosion(cart, x, y, z, 0.3F, false);
-            world.newExplosion(cart, x, y, z, 3.5F, true, true);
+            IBlockState blockMetaData = worldObj.getBlockState(new BlockPos(pos));
+            worldObj.createExplosion(cart, pos.getX(), pos.getY(), pos.getZ(), 0.3F, false);
+            worldObj.newExplosion(cart, pos.getX(), pos.getY(), pos.getZ(), 3.5F, true, true);
         }
     }
 }

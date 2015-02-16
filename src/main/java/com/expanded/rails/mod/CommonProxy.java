@@ -1,10 +1,18 @@
 package com.expanded.rails.mod;
 
-public class CommonProxy
-{
-    // Client stuff
-    public void registerRenderers()
-    {
-        // Nothing here as the server doesn't render graphics or entities!
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+public class CommonProxy{
+
+    public void preInit(FMLPreInitializationEvent event) {
+    }
+
+    public void init(FMLInitializationEvent event) {
+    	
+    }
+
+    public void postInit(FMLPostInitializationEvent event) {
     }
 }

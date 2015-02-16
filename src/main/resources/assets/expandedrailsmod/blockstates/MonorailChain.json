@@ -1,14 +1,14 @@
 {
     "variants": {
-        "shape=north_south": { "model": "ExpandedRailsMod:ChainMonorail" },
-        "shape=east_west": { "model": "ExpandedRailsMod:ChainMonorail", "y": 90 },
-        "shape=ascending_east": { "model": "ExpandedRailsMod:ChainMonorail_ne", "y": 90 },
-        "shape=ascending_west": { "model": "ExpandedRailsMod:ChainMonorail_sw", "y": 90 },
-        "shape=ascending_north": { "model": "ExpandedRailsMod:ChainMonorail_ne" },
-        "shape=ascending_south": { "model": "ExpandedRailsMod:ChainMonorail_sw" },
-        "shape=south_east": { "model": "ExpandedRailsMod:ChainMonorail_Turn" },
-        "shape=south_west": { "model": "ExpandedRailsMod:ChainMonorail_Turn", "y": 90 },
-        "shape=north_west": { "model": "ExpandedRailsMod:ChainMonorail_Turn", "y": 180 },
-        "shape=north_east": { "model": "ExpandedRailsMod:ChainMonorail_Turn", "y": 270 }
+        "shape=north_south": { "model": "ExpandedRailsMod:MonorailChain" },
+        "shape=east_west": { "model": "ExpandedRailsMod:MonorailChain", "y": 90 },
+        "shape=ascending_east": { "model": "ExpandedRailsMod:MonorailChain_ne", "y": 90 },
+        "shape=ascending_west": { "model": "ExpandedRailsMod:MonorailChain_sw", "y": 90 },
+        "shape=ascending_north": { "model": "ExpandedRailsMod:MonorailChain_ne" },
+        "shape=ascending_south": { "model": "ExpandedRailsMod:MonorailChain_sw" },
+        "shape=south_east": { "model": "ExpandedRailsMod:MonorailChain_Turn" },
+        "shape=south_west": { "model": "ExpandedRailsMod:MonorailChain_Turn", "y": 90 },
+        "shape=north_west": { "model": "ExpandedRailsMod:MonorailChain_Turn", "y": 180 },
+        "shape=north_east": { "model": "ExpandedRailsMod:MonorailChain_Turn", "y": 270 }
     }
 }

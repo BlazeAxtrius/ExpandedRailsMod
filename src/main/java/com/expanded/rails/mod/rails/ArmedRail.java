@@ -4,13 +4,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.expanded.rails.mod.ERMBase;
 
 public class ArmedRail extends AllRails
 {
-    
+    public int x, y ,z;
+	BlockPos pos = new BlockPos(x, y, z);
+	
     public ArmedRail(int par1)
     {
         super(par1);
@@ -20,13 +23,14 @@ public class ArmedRail extends AllRails
         // TODO Auto-generated constructor stub
     }
 
-    public void onMinecartPass(World worldObj, EntityMinecart cart, new BlockPos(x, y, z))
+    @Override
+    public void onMinecartPass(World worldObj, EntityMinecart cart, BlockPos pos)
     {
         if (worldObj.getBlockState(new BlockPos(pos)).getBlock() == ERMBase.armedRail)
         {
             IBlockState blockMetaData = worldObj.getBlockState(new BlockPos(pos));
-            worldObj.createExplosion(cart, x, y, z, 0.3F, false);
-            worldObj.newExplosion(cart, x, y, z, 3.5F, true, true);
+            worldObj.createExplosion(cart, pos.getX(), pos.getY(), pos.getZ(), 0.3F, false);
+            worldObj.newExplosion(cart, pos.getX(), pos.getY(), pos.getZ(), 3.5F, true, true);
         }
     }
 }
