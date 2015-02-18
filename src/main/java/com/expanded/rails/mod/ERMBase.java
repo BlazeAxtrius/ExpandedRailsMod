@@ -20,22 +20,9 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 import com.expanded.rails.mod.normalrails.*;
-//import com.expanded.rails.mod.blocks.RailsCraftingTable;
-//import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
+import com.expanded.rails.mod.blocks.RailsCraftingTable;
+import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
 import com.expanded.rails.mod.rails.AllRails;
 import com.expanded.rails.mod.rails.ArmedRail;
 import com.expanded.rails.mod.rails.ChainRail;
@@ -69,7 +56,7 @@ import com.expanded.rails.mod.rails.TriplerailLapis;
 //import expanded.rails.mod.entity.TileEntityRailBrake;
 //import expanded.rails.mod.entity.TileEntityRailBrakeEntity;
 
-@Mod(modid = "ExpandedRailsMod", name = "Expanded Rails Mod", version = "1.6.2")
+@Mod(modid = "ExpandedRailsMod", name = "Expanded Rails Mod", version = "1.6.3")
 public class ERMBase
 {
 	
@@ -116,7 +103,7 @@ public class ERMBase
     public static Item minecartWhite, minecartOrange, minecartMagenta, minecartLightblue, minecartYellow, minecartLime, minecartPink, minecartGray, minecartLightgray, minecartCyan, minecartPurple, minecartBlue, minecartBrown, minecartGreen, minecartRed, minecartBlack;
     public static Item emeraldBar, diamondBar, obsidianBar, lapisBar, explosiveBar, ironNail, goldNail, diamondNail, emeraldNail, obsidianNail, netherrackNail, woolenNail, netherIngot, railIronBase, railDiamondBase, railObsidianBase, railNetherrackBase, railEmeraldBase, railLapisBase, railGoldBase, railArmedBase, railChainBase, railIceBase, railEnderPearlBase, obsidianChunk;
     public static Block enderPearlDiamondRail, enderPearlDiamondMonorail, enderPearlDiamondTriplerail;
-    //public GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable();
+    public GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable(); 
 
     @EventHandler
     public void load(FMLInitializationEvent event)
@@ -153,7 +140,7 @@ public class ERMBase
         diamondNetherRail = new DiamondNetherRail(3006).setUnlocalizedName("diamondNetherRail");
         diamondObsidianRail = new DiamondObsidianRail(3007).setUnlocalizedName("diamondObsidianRail");
         netherStarRail = new AllRails(3010).setUnlocalizedName("netherStarRail");
-//railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraftingTable");
+railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraftingTable");
 //railBrake = new TileEntityRailBrake(railBrakeID, Material.rock).setUnlocalizedName("railBrake");
         //Wool Monorails//
         monorailWhite = new AllRails(3169).setUnlocalizedName("monorailWhite");
@@ -362,14 +349,12 @@ public class ERMBase
         GameRegistry.registerBlock(enderPearlDiamondMonorail, "enderPearlDiamondMonorail");
         GameRegistry.registerBlock(enderPearlDiamondTriplerail, "enderPearlDiamondTriplerail");
         
-        //GameRegistry.registerBlock(railsCraftingTable, "railsCraftingTable");
+        GameRegistry.registerBlock(railsCraftingTable, "railsCraftingTable");
         
         //GameRegistry.registerBlock(railBrake, "railBrake");
         
         
-        
-        //NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
-        
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
         
         
         //Item Registering// ADD NAMES IN LANG FILE

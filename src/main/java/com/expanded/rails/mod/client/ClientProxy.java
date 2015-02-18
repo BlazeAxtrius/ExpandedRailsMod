@@ -5,10 +5,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
+import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
 import com.expanded.rails.mod.normalrails.*;
 import com.expanded.rails.mod.CommonProxy;
 //import expanded.rails.mod.entity.RailBrakeModel;
@@ -18,7 +21,6 @@ import com.expanded.rails.mod.ERMBase;
 
 public class ClientProxy extends CommonProxy
 {
-
          //     ClientRegistry.bindTileEntitySpecialRenderer(TileEntityRailBrakeEntity.class, new TileEntityRailBrakeRenderer());
          // 	RenderingRegistry.registerEntityRenderingHandler(TileEntityRailBrakeEntity.class, new TileEntityRailBrakeRenderer(new RailBrakeModel()));
 
@@ -28,7 +30,15 @@ public class ClientProxy extends CommonProxy
 
     /*public void registerRenderThings() {
     }*/
-
+	
+	//public GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable();
+	
+	//@EventHandler
+    //public void load(FMLInitializationEvent event)
+    //{
+		//NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
+    //}
+	
         @Override
         public void preInit(FMLPreInitializationEvent event) {
             super.preInit(event);
@@ -134,6 +144,9 @@ public class ClientProxy extends CommonProxy
             Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailGreen), 0,new ModelResourceLocation(ERMBase.modid+":"+"triplerailGreen", "inventory"));
             Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailRed), 0,new ModelResourceLocation(ERMBase.modid+":"+"triplerailRed", "inventory"));
             Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailBlack), 0,new ModelResourceLocation(ERMBase.modid+":"+"triplerailBlack", "inventory"));
+            
+            //Crafting Table//
+            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.railsCraftingTable), 0,new ModelResourceLocation(ERMBase.modid+":"+"railsCraftingTable", "inventory"));
             
             //New Rails//
             Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.enderPearlDiamondRail), 0,new ModelResourceLocation(ERMBase.modid+":"+"enderPearlDiamondRail", "inventory"));

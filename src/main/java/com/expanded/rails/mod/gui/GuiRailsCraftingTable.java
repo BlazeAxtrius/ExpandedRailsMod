@@ -14,7 +14,7 @@ public class GuiRailsCraftingTable extends GuiContainer
     protected int xSize = 176;
     protected int ySize = 186;
 
-    private static final ResourceLocation field_110422_t = new ResourceLocation("expandedrails:textures/gui/container/rails_crafting_table.png");
+    private static final ResourceLocation field_110422_t = new ResourceLocation("expandedrailsmod:textures/gui/container/rails_crafting_table.png");
 
     public GuiRailsCraftingTable(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
     {
@@ -37,9 +37,9 @@ public class GuiRailsCraftingTable extends GuiContainer
     protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
     {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.getTextureManager().bindTexture(field_110422_t);
+        mc.getTextureManager().bindTexture(field_110422_t);
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+        drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
     }
 }

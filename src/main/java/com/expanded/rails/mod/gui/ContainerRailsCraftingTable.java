@@ -1,5 +1,6 @@
 package com.expanded.rails.mod.gui;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -10,8 +11,11 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+import com.expanded.rails.mod.gui.TileEntityRailsCraftingTable;
 
 import com.expanded.rails.mod.ERMBase;
 
@@ -31,6 +35,8 @@ public class ContainerRailsCraftingTable extends Container
     private int posX;
     private int posY;
     private int posZ;
+    public TileEntityRailsCraftingTable tileEntity;
+    private SlotRailsCraftingTable slotCraft;
     private BlockPos field_178145_h;
     public ContainerRailsCraftingTable(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
     {
@@ -38,7 +44,7 @@ public class ContainerRailsCraftingTable extends Container
         this.posX = par3;
         this.posY = par4;
         this.posZ = par5;
-        this.addSlotToContainer(new SlotCrafting(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 120, 25));
+        this.addSlotToContainer(new SlotRailsCraftingTable(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 120, 25));
         int l;
         int i1;
         int l_;
@@ -116,10 +122,12 @@ public class ContainerRailsCraftingTable extends Container
             }
         }
     }
-
+    
+    @Override
     public boolean canInteractWith(EntityPlayer par1EntityPlayer)
     {
-        return this.worldObj.getBlockState(this.field_178145_h).getBlock() != ERMBase.railsCraftingTable ? false : par1EntityPlayer.getDistanceSq((double)this.posX + 0.5D, (double)this.posY + 0.5D, (double)this.posZ + 0.5D) <= 64.0D;
+    	return tileEntity.isUseableByPlayer(par1EntityPlayer);
+        //return this.worldObj.getBlockState(this.field_178145_h).getBlock() != ERMBase.railsCraftingTable ? false : par1EntityPlayer.getDistanceSq((double)this.field_178145_h.getX() + 0.5D, (double)this.field_178145_h.getY() + 0.5D, (double)this.field_178145_h.getZ() + 0.5D) <= 64.0D;
     }
 
     /*** Called when a player shift-clicks on a slot. You must override this or you will crash when someone does that.*/
@@ -186,4 +194,5 @@ public class ContainerRailsCraftingTable extends Container
     {
         return par2Slot.inventory != this.craftResult && super.canMergeSlot(par1ItemStack, par2Slot);
     }
+
 }

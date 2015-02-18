@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "expandedrailsmod:blocks/RailsCraftingTable_front",
+        "down": "expandedrailsmod:blocks/planks_oak",
+        "up": "expandedrailsmod:blocks/RailsCraftingTable_top",
+        "north": "expandedrailsmod:blocks/RailsCraftingTable_front",
+        "east": "expandedrailsmod:blocks/RailsCraftingTable_side",
+        "south": "expandedrailsmod:blocks/RailsCraftingTable_side",
+        "west": "expandedrailsmod:blocks/RailsCraftingTable_front"
+    }
+}

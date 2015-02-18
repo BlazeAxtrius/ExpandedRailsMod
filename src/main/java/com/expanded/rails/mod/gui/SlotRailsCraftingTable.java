@@ -2,11 +2,13 @@ package com.expanded.rails.mod.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 
-public class SlotRailsCraftingTable extends Slot
+public class SlotRailsCraftingTable extends SlotCrafting
 {
     /** The craft matrix inventory linked to this result slot.*/
     private final IInventory craftMatrix;
@@ -15,9 +17,9 @@ public class SlotRailsCraftingTable extends Slot
     /*** The number of items that have been crafted so far. Gets passed to ItemStack.onCrafting before being reset.*/
     private int amountCrafted;
 
-    public SlotRailsCraftingTable(EntityPlayer par1EntityPlayer, IInventory par2IInventory, IInventory par3IInventory, int par4, int par5, int par6)
+    public SlotRailsCraftingTable(EntityPlayer par1EntityPlayer, InventoryCrafting par2IInventory, IInventory par3IInventory, int par4, int par5, int par6)
     {
-        super(par3IInventory, par4, par5, par6);
+        super(par1EntityPlayer, par2IInventory, par3IInventory, par4, par5, par6);
         this.thePlayer = par1EntityPlayer;
         this.craftMatrix = par2IInventory;
     }
@@ -47,8 +49,8 @@ public class SlotRailsCraftingTable extends Slot
     }
 
     /*** the itemStack passed in is the output - ie, iron ingots, and pickaxes, not ore and wood.*/
-    protected void onCrafting(ItemCraftedEvent event)
-    {
+    //protected void onCrafting(ItemCraftedEvent event)
+    //{
         //par1ItemStack.onCrafting(this.thePlayer.worldObj, this.thePlayer, this.amountCrafted);
         //this.amountCrafted = 0;
     	//final EntityPlayer player = event.player;
@@ -93,10 +95,10 @@ public class SlotRailsCraftingTable extends Slot
         //{
             //this.thePlayer.addStat(AchievementList.bookcase, 1);
         //}
-    }
-    @net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-    public void onItemCraftedEvent(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack)
-    {
+    //}
+    //@net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+    //public void onItemCraftedEvent(EntityPlayer par1EntityPlayer, ItemStack par2ItemStack)
+    //{
         //ItemCraftedEvent.onCrafting(par1EntityPlayer, par2ItemStack, craftMatrix);
         //this.onCrafting(par2ItemStack);
 
@@ -132,5 +134,5 @@ public class SlotRailsCraftingTable extends Slot
                 //}
             //}
         //}
-    }
+    //}
 }
