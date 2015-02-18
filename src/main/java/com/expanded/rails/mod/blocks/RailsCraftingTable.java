@@ -14,8 +14,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
+
 import java.util.Random;
 
+import com.expanded.rails.mod.CommonProxy;
 import com.expanded.rails.mod.ERMBase;
 import com.expanded.rails.mod.gui.TileEntityRailsCraftingTable;
 
@@ -60,7 +62,7 @@ public class RailsCraftingTable extends BlockContainer
     		if (!worldIn.isRemote) {
     			TileEntityRailsCraftingTable  RailsCraftingTable = (TileEntityRailsCraftingTable) worldIn.getTileEntity(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
     			if (RailsCraftingTable != null) {
-    				playerIn.openGui(ERMBase.instance, 3, worldIn, pos.getX(), pos.getY() , pos.getZ());
+    				playerIn.openGui(ERMBase.instance, CommonProxy.RailsCraftingTable, worldIn, pos.getX(), pos.getY() , pos.getZ());
     			}
     		}
     		return true;

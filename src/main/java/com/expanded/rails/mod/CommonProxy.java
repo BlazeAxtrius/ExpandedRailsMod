@@ -26,7 +26,7 @@ public class CommonProxy implements IGuiHandler{
     public void postInit(FMLPostInitializationEvent event) {
     }
 
-    public static final int RailsCraftingTable = 0;
+    public static final int RailsCraftingTable = 3;
     
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
