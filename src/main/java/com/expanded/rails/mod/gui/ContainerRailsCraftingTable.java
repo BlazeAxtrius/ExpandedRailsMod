@@ -38,6 +38,7 @@ public class ContainerRailsCraftingTable extends Container
     public TileEntityRailsCraftingTable tileEntity;
     private SlotRailsCraftingTable slotCraft;
     private BlockPos field_178145_h;
+    
     public ContainerRailsCraftingTable(TileEntityRailsCraftingTable tileTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
     {
         this.worldObj = par2World;
@@ -118,6 +119,12 @@ public class ContainerRailsCraftingTable extends Container
                 }
             }
         }
+    }
+ 
+    private void saveCraftingMatrix() {
+    for (int i = 0; i < craftMatrix.getSizeInventory(); i++) {
+    tileEntity.craftMatrixInventory[i] = craftMatrix.getStackInSlot(i);
+    }
     }
     
     @Override
