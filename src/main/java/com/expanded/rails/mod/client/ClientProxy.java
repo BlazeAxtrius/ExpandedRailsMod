@@ -10,8 +10,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
-
-import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
 import com.expanded.rails.mod.normalrails.*;
 import com.expanded.rails.mod.CommonProxy;
 //import expanded.rails.mod.entity.RailBrakeModel;

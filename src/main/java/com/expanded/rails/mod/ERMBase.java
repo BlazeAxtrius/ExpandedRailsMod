@@ -22,7 +22,7 @@ import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
 import com.expanded.rails.mod.normalrails.*;
 import com.expanded.rails.mod.blocks.RailsCraftingTable;
-import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
+//import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
 import com.expanded.rails.mod.rails.AllRails;
 import com.expanded.rails.mod.rails.ArmedRail;
 import com.expanded.rails.mod.rails.ChainRail;
@@ -103,7 +103,7 @@ public class ERMBase
     public static Item minecartWhite, minecartOrange, minecartMagenta, minecartLightblue, minecartYellow, minecartLime, minecartPink, minecartGray, minecartLightgray, minecartCyan, minecartPurple, minecartBlue, minecartBrown, minecartGreen, minecartRed, minecartBlack;
     public static Item emeraldBar, diamondBar, obsidianBar, lapisBar, explosiveBar, ironNail, goldNail, diamondNail, emeraldNail, obsidianNail, netherrackNail, woolenNail, netherIngot, railIronBase, railDiamondBase, railObsidianBase, railNetherrackBase, railEmeraldBase, railLapisBase, railGoldBase, railArmedBase, railChainBase, railIceBase, railEnderPearlBase, obsidianChunk;
     public static Block enderPearlDiamondRail, enderPearlDiamondMonorail, enderPearlDiamondTriplerail;
-    public GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable(); 
+    //public GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable(); 
 
     @EventHandler
     public void load(FMLInitializationEvent event)
@@ -354,7 +354,7 @@ railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraft
         //GameRegistry.registerBlock(railBrake, "railBrake");
         
         
-        NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
+        //NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
         
         
         //Item Registering// ADD NAMES IN LANG FILE

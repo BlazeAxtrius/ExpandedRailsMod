@@ -3,6 +3,7 @@ package com.expanded.rails.mod.gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
@@ -16,9 +17,9 @@ public class GuiRailsCraftingTable extends GuiContainer
 
     private static final ResourceLocation field_110422_t = new ResourceLocation("expandedrailsmod:textures/gui/container/rails_crafting_table.png");
 
-    public GuiRailsCraftingTable(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
+    public GuiRailsCraftingTable(TileEntityRailsCraftingTable tileTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
     {
-        super(new ContainerRailsCraftingTable(par1InventoryPlayer, par2World, par3, par4, par5));
+        super(new ContainerRailsCraftingTable(tileTable, par1InventoryPlayer, par2World, pos1));
     }
 
     /*** Draw the foreground layer for the GuiContainer (everything in front of the items)**/

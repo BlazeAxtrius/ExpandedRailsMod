@@ -38,12 +38,9 @@ public class ContainerRailsCraftingTable extends Container
     public TileEntityRailsCraftingTable tileEntity;
     private SlotRailsCraftingTable slotCraft;
     private BlockPos field_178145_h;
-    public ContainerRailsCraftingTable(InventoryPlayer par1InventoryPlayer, World par2World, int par3, int par4, int par5)
+    public ContainerRailsCraftingTable(TileEntityRailsCraftingTable tileTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
     {
         this.worldObj = par2World;
-        this.posX = par3;
-        this.posY = par4;
-        this.posZ = par5;
         this.addSlotToContainer(new SlotRailsCraftingTable(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 120, 25));
         int l;
         int i1;
@@ -92,7 +89,7 @@ public class ContainerRailsCraftingTable extends Container
         /**this.onCraftMatrixChanged(this.craftMatrix_);*/
     }
 
-    /*** Callback for when the crafting matrix is changed.*/ //Changes: if + return, RCTCraftingManager <- CraftingManager
+	/*** Callback for when the crafting matrix is changed.*/ //Changes: if + return, RCTCraftingManager <- CraftingManager
     public void onCraftMatrixChanged(IInventory par1IInventory)
     {
         this.craftResult.setInventorySlotContents(0, RailsCraftingTableCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
