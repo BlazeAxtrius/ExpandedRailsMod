@@ -58,8 +58,8 @@ public class RailsCraftingTable extends BlockContainer
     		return false;
     	else {
     		if (!worldIn.isRemote) {
-    			TileEntityRailsCraftingTable tileNileTable = (TileEntityRailsCraftingTable) worldIn.getTileEntity(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
-    			if (tileNileTable != null) {
+    			TileEntityRailsCraftingTable  RailsCraftingTable = (TileEntityRailsCraftingTable) worldIn.getTileEntity(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+    			if (RailsCraftingTable != null) {
     				playerIn.openGui(ERMBase.instance, 3, worldIn, pos.getX(), pos.getY() , pos.getZ());
     			}
     		}
@@ -73,10 +73,10 @@ public class RailsCraftingTable extends BlockContainer
     	 super.breakBlock(worldIn, pos, state);
     	 }
     	 private void dropInventory(World world, int x, int y, int z) {
-    	 TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
-    	 if (!(tileEntity instanceof IInventory))
+    	 TileEntity RailsCraftingTable = world.getTileEntity(new BlockPos(x, y, z));
+    	 if (!(RailsCraftingTable instanceof IInventory))
     	 return;
-    	 IInventory inventory = (IInventory) tileEntity;
+    	 IInventory inventory = (IInventory) RailsCraftingTable;
     	 for (int i = 0; i < inventory.getSizeInventory(); i++) {
     	 ItemStack itemStack = inventory.getStackInSlot(i);
     	 if (itemStack != null && itemStack.stackSize > 0) {

@@ -34,9 +34,9 @@ public class CommonProxy implements IGuiHandler{
     TileEntity target = world.getTileEntity(new BlockPos(x, y, z));
     if(!(target instanceof TileEntityRailsCraftingTable))
     return null;
-    TileEntityRailsCraftingTable tileNileTable = (TileEntityRailsCraftingTable)target;
-    ContainerRailsCraftingTable tableContainer = new ContainerRailsCraftingTable(tileNileTable, player.inventory, world, new BlockPos(x, y, z));
-    return tableContainer;
+    TileEntityRailsCraftingTable RailsCraftingTable = (TileEntityRailsCraftingTable)target;
+    ContainerRailsCraftingTable ContainerRailsCraftingTable = new ContainerRailsCraftingTable(RailsCraftingTable, player.inventory, world, new BlockPos(x, y, z));
+    return ContainerRailsCraftingTable;
     }
     return null;
     }
@@ -46,9 +46,9 @@ public class CommonProxy implements IGuiHandler{
     TileEntity target = world.getTileEntity(new BlockPos(x, y, z));
     if(!(target instanceof TileEntityRailsCraftingTable))
     return null;
-    TileEntityRailsCraftingTable tileNileTable = (TileEntityRailsCraftingTable)target;
-    GuiRailsCraftingTable tableGui = new GuiRailsCraftingTable(tileNileTable, player.inventory, world, new BlockPos(x, y, z));
-    return tableGui;
+    TileEntityRailsCraftingTable  RailsCraftingTable = (TileEntityRailsCraftingTable)target;
+    GuiRailsCraftingTable  GuiRailsCraftingTable = new GuiRailsCraftingTable(RailsCraftingTable, player.inventory, world, new BlockPos(x, y, z));
+    return  GuiRailsCraftingTable;
     }
     return null;
     }

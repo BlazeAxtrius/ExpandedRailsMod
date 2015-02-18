@@ -35,11 +35,11 @@ public class ContainerRailsCraftingTable extends Container
     private int posX;
     private int posY;
     private int posZ;
-    public TileEntityRailsCraftingTable tileEntity;
+    public TileEntityRailsCraftingTable RailsCraftingTable;
     private SlotRailsCraftingTable slotCraft;
     private BlockPos field_178145_h;
     
-    public ContainerRailsCraftingTable(TileEntityRailsCraftingTable tileTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
+    public ContainerRailsCraftingTable(TileEntityRailsCraftingTable  RailsCraftingTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
     {
         this.worldObj = par2World;
         this.addSlotToContainer(new SlotRailsCraftingTable(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 120, 25));
@@ -123,14 +123,14 @@ public class ContainerRailsCraftingTable extends Container
  
     private void saveCraftingMatrix() {
     for (int i = 0; i < craftMatrix.getSizeInventory(); i++) {
-    tileEntity.craftMatrixInventory[i] = craftMatrix.getStackInSlot(i);
+    	 RailsCraftingTable.craftMatrixInventory[i] = craftMatrix.getStackInSlot(i);
     }
     }
     
     @Override
     public boolean canInteractWith(EntityPlayer par1EntityPlayer)
     {
-    	return tileEntity.isUseableByPlayer(par1EntityPlayer);
+    	return  RailsCraftingTable.isUseableByPlayer(par1EntityPlayer);
         //return this.worldObj.getBlockState(this.field_178145_h).getBlock() != ERMBase.railsCraftingTable ? false : par1EntityPlayer.getDistanceSq((double)this.field_178145_h.getX() + 0.5D, (double)this.field_178145_h.getY() + 0.5D, (double)this.field_178145_h.getZ() + 0.5D) <= 64.0D;
     }
 

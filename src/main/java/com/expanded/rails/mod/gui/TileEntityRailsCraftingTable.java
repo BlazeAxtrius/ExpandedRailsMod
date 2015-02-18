@@ -114,6 +114,7 @@ craftResult.setInventorySlotContents(0, ItemStack.loadItemStackFromNBT(tagCraftR
 }
 @Override
 public void writeToNBT(NBTTagCompound nbtTagCompound) {
+super.writeToNBT(nbtTagCompound);
 // Write the ItemStacks in the inventory to NBT
 NBTTagList tagList = new NBTTagList();
 for (int currentIndex = 0; currentIndex < inventory.length; ++currentIndex) {
