@@ -362,7 +362,6 @@ railsCraftingTable = new BlockNileWorkbench().setUnlocalizedName("railsCraftingT
         
         //NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
         GameRegistry.registerTileEntity(TileEntityNileWorkbench.class,"expandedrailsmod.TileEntityRailsCraftingTable");
-        NetworkRegistry.INSTANCE.registerGuiHandler(ERMBase.modid, proxy);
         
         
         //Item Registering// ADD NAMES IN LANG FILE
@@ -576,6 +575,7 @@ railsCraftingTable = new BlockNileWorkbench().setUnlocalizedName("railsCraftingT
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+    	NetworkRegistry.INSTANCE.registerGuiHandler(ERMBase.modid, proxy);
     	this.proxy.preInit(event);
     }
     
