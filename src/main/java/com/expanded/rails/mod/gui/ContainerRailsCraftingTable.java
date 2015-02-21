@@ -35,14 +35,14 @@ public class ContainerRailsCraftingTable extends Container
     private int posX;
     private int posY;
     private int posZ;
-    public TileEntityRailsCraftingTable RailsCraftingTable;
+    public TileEntityRailsCraftingTable RailsCraftingTable1;
     private SlotRailsCraftingTable slotCraft;
     private BlockPos field_178145_h;
     
     public ContainerRailsCraftingTable(TileEntityRailsCraftingTable  RailsCraftingTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
     {
         this.worldObj = par2World;
-        this.addSlotToContainer(new SlotRailsCraftingTable(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 120, 25));
+        this.addSlotToContainer(new SlotRailsCraftingTable(par1InventoryPlayer.player, this.craftMatrix, RailsCraftingTable1.craftResult, 0, 120, 25));
         int l;
         int i1;
         int l_;
@@ -93,7 +93,7 @@ public class ContainerRailsCraftingTable extends Container
 	/*** Callback for when the crafting matrix is changed.*/ //Changes: if + return, RCTCraftingManager <- CraftingManager
     public void onCraftMatrixChanged(IInventory par1IInventory)
     {
-        this.craftResult.setInventorySlotContents(0, RailsCraftingTableCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
+    	RailsCraftingTable1.craftResult.setInventorySlotContents(0, RailsCraftingTableCraftingManager.getInstance().findMatchingRecipe(this.craftMatrix, this.worldObj));
 
         //if (this.craftResult.getStackInSlot(0) != null)
         //{
@@ -123,14 +123,14 @@ public class ContainerRailsCraftingTable extends Container
  
     private void saveCraftingMatrix() {
     for (int i = 0; i < craftMatrix.getSizeInventory(); i++) {
-    	 RailsCraftingTable.craftMatrixInventory[i] = craftMatrix.getStackInSlot(i);
+    	 RailsCraftingTable1.craftMatrixInventory[i] = craftMatrix.getStackInSlot(i);
     }
     }
     
     @Override
     public boolean canInteractWith(EntityPlayer par1EntityPlayer)
     {
-    	return  RailsCraftingTable.isUseableByPlayer(par1EntityPlayer);
+    	return  RailsCraftingTable1.isUseableByPlayer(par1EntityPlayer);
         //return this.worldObj.getBlockState(this.field_178145_h).getBlock() != ERMBase.railsCraftingTable ? false : par1EntityPlayer.getDistanceSq((double)this.field_178145_h.getX() + 0.5D, (double)this.field_178145_h.getY() + 0.5D, (double)this.field_178145_h.getZ() + 0.5D) <= 64.0D;
     }
 
@@ -196,7 +196,7 @@ public class ContainerRailsCraftingTable extends Container
 
     public boolean canMergeSlot(ItemStack par1ItemStack, Slot par2Slot)
     {
-        return par2Slot.inventory != this.craftResult && super.canMergeSlot(par1ItemStack, par2Slot);
+        return par2Slot.inventory != RailsCraftingTable1.craftResult && super.canMergeSlot(par1ItemStack, par2Slot);
     }
 
 }

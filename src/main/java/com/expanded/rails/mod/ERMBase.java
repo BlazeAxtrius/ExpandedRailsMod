@@ -9,6 +9,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -20,9 +21,12 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
+import com.expanded.rails.mod.blocks.BlockNileWorkbench;
 import com.expanded.rails.mod.normalrails.*;
-import com.expanded.rails.mod.blocks.RailsCraftingTable;
+//import com.expanded.rails.mod.blocks.RailsCraftingTable;
+//import com.expanded.rails.mod.gui.TileEntityRailsCraftingTable;
 //import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
+import com.expanded.rails.mod.gui.TileEntityNileWorkbench;
 import com.expanded.rails.mod.rails.AllRails;
 import com.expanded.rails.mod.rails.ArmedRail;
 import com.expanded.rails.mod.rails.ChainRail;
@@ -56,7 +60,7 @@ import com.expanded.rails.mod.rails.TriplerailLapis;
 //import expanded.rails.mod.entity.TileEntityRailBrake;
 //import expanded.rails.mod.entity.TileEntityRailBrakeEntity;
 
-@Mod(modid = "ExpandedRailsMod", name = "Expanded Rails Mod", version = "1.6.3")
+@Mod(modid = "expandedrailsmod", name = "Expanded Rails Mod", version = "1.6.3")
 public class ERMBase
 {
 	
@@ -104,6 +108,7 @@ public class ERMBase
     public static Item emeraldBar, diamondBar, obsidianBar, lapisBar, explosiveBar, ironNail, goldNail, diamondNail, emeraldNail, obsidianNail, netherrackNail, woolenNail, netherIngot, railIronBase, railDiamondBase, railObsidianBase, railNetherrackBase, railEmeraldBase, railLapisBase, railGoldBase, railArmedBase, railChainBase, railIceBase, railEnderPearlBase, obsidianChunk;
     public static Block enderPearlDiamondRail, enderPearlDiamondMonorail, enderPearlDiamondTriplerail;
     //public GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable(); 
+    public TileEntityNileWorkbench guiHandlerRailsCraftingTable = new TileEntityNileWorkbench();
 
     @EventHandler
     public void load(FMLInitializationEvent event)
@@ -140,7 +145,8 @@ public class ERMBase
         diamondNetherRail = new DiamondNetherRail(3006).setUnlocalizedName("diamondNetherRail");
         diamondObsidianRail = new DiamondObsidianRail(3007).setUnlocalizedName("diamondObsidianRail");
         netherStarRail = new AllRails(3010).setUnlocalizedName("netherStarRail");
-railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraftingTable");
+railsCraftingTable = new BlockNileWorkbench().setUnlocalizedName("railsCraftingTable");
+//railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraftingTable");
 //railBrake = new TileEntityRailBrake(railBrakeID, Material.rock).setUnlocalizedName("railBrake");
         //Wool Monorails//
         monorailWhite = new AllRails(3169).setUnlocalizedName("monorailWhite");
@@ -355,6 +361,7 @@ railsCraftingTable = new RailsCraftingTable(2901).setUnlocalizedName("railsCraft
         
         
         //NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
+        GameRegistry.registerTileEntity(TileEntityNileWorkbench.class,"expandedrailsmod.TileEntityRailsCraftingTable");
         
         
         //Item Registering// ADD NAMES IN LANG FILE

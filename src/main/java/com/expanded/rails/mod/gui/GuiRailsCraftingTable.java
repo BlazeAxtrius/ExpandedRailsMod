@@ -10,19 +10,21 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import com.expanded.rails.mod.ERMBase;
+
 public class GuiRailsCraftingTable extends GuiContainer
 {
     protected int xSize = 176;
     protected int ySize = 186;
 
-    private static final ResourceLocation field_110422_t = new ResourceLocation("expandedrailsmod:textures/gui/container/rails_crafting_table.png");
+    private static final ResourceLocation field_110422_t = new ResourceLocation(ERMBase.modid + ":" + "textures/gui/container/rails_crafting_table.png");
 
-    public GuiRailsCraftingTable(TileEntityRailsCraftingTable  RailsCraftingTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
+    public GuiRailsCraftingTable(TileEntityRailsCraftingTable RailsCraftingTable, InventoryPlayer par1InventoryPlayer, World par2World, BlockPos pos1)
     {
         super(new ContainerRailsCraftingTable(RailsCraftingTable, par1InventoryPlayer, par2World, pos1));
     }
 
-    /*** Draw the foreground layer for the GuiContainer (everything in front of the items)**/
+	/*** Draw the foreground layer for the GuiContainer (everything in front of the items)**/
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
     	//this.fontRendererObj.drawString(I18n.getString("container.crafting"), 25, -4, 4210752);
