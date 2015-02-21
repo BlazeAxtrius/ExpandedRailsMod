@@ -64,7 +64,7 @@ import com.expanded.rails.mod.rails.TriplerailLapis;
 public class ERMBase
 {
 	
-	public static final String modid = "ExpandedRailsMod";
+	public static final String modid = "expandedrailsmod";
 	
     // The instance of your mod that Forge uses.
     @Instance("ExpandedRailsMod")
@@ -362,6 +362,7 @@ railsCraftingTable = new BlockNileWorkbench().setUnlocalizedName("railsCraftingT
         
         //NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandlerRailsCraftingTable);
         GameRegistry.registerTileEntity(TileEntityNileWorkbench.class,"expandedrailsmod.TileEntityRailsCraftingTable");
+        NetworkRegistry.INSTANCE.registerGuiHandler(ERMBase.modid, proxy);
         
         
         //Item Registering// ADD NAMES IN LANG FILE
