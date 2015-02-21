@@ -1,0 +1,14 @@
+{
+    "variants": {
+        "shape=north_south": { "model": "ExpandedRailsMod:BrickRail" },
+        "shape=east_west": { "model": "ExpandedRailsMod:BrickRail", "y": 90 },
+        "shape=ascending_east": { "model": "ExpandedRailsMod:BrickRail_ne", "y": 90 },
+        "shape=ascending_west": { "model": "ExpandedRailsMod:BrickRail_sw", "y": 90 },
+        "shape=ascending_north": { "model": "ExpandedRailsMod:BrickRail_ne" },
+        "shape=ascending_south": { "model": "ExpandedRailsMod:BrickRail_sw" },
+        "shape=south_east": { "model": "ExpandedRailsMod:BrickRail_Turn" },
+        "shape=south_west": { "model": "ExpandedRailsMod:BrickRail_Turn", "y": 90 },
+        "shape=north_west": { "model": "ExpandedRailsMod:BrickRail_Turn", "y": 180 },
+        "shape=north_east": { "model": "ExpandedRailsMod:BrickRail_Turn", "y": 270 }
+    }
+}
