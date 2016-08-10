@@ -1,0 +1,14 @@
+{
+    "variants": {
+        "shape=north_south": { "model": "ExpandedRailsMod:MonorailGlowing" },
+        "shape=east_west": { "model": "ExpandedRailsMod:MonorailGlowing", "y": 90 },
+        "shape=ascending_east": { "model": "ExpandedRailsMod:MonorailGlowing_ne", "y": 90 },
+        "shape=ascending_west": { "model": "ExpandedRailsMod:MonorailGlowing_sw", "y": 90 },
+        "shape=ascending_north": { "model": "ExpandedRailsMod:MonorailGlowing_ne" },
+        "shape=ascending_south": { "model": "ExpandedRailsMod:MonorailGlowing_sw" },
+        "shape=south_east": { "model": "ExpandedRailsMod:MonorailGlowing_Turn" },
+        "shape=south_west": { "model": "ExpandedRailsMod:MonorailGlowing_Turn", "y": 90 },
+        "shape=north_west": { "model": "ExpandedRailsMod:MonorailGlowing_Turn", "y": 180 },
+        "shape=north_east": { "model": "ExpandedRailsMod:MonorailGlowing_Turn", "y": 270 }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "powered=false,shape=north_south":  { "model": "ExpandedRailsMod:MonorailPowered" },
+        "powered=false,shape=east_west":  { "model": "ExpandedRailsMod:MonorailPowered", "y": 90 },
+        "powered=false,shape=ascending_east": { "model": "ExpandedRailsMod:MonorailPowered_ne", "y": 90 },
+        "powered=false,shape=ascending_west": { "model": "ExpandedRailsMod:MonorailPowered_sw", "y": 90 },
+        "powered=false,shape=ascending_north": { "model": "ExpandedRailsMod:MonorailPowered_ne" },
+        "powered=false,shape=ascending_south": { "model": "ExpandedRailsMod:MonorailPowered_sw" },
+        "powered=true,shape=north_south":  { "model": "ExpandedRailsMod:MonorailPowered_On" },
+        "powered=true,shape=east_west":  { "model": "ExpandedRailsMod:MonorailPowered_On", "y": 90 },
+        "powered=true,shape=ascending_east": { "model": "ExpandedRailsMod:MonorailPowered_On_ne", "y": 90 },
+        "powered=true,shape=ascending_west": { "model": "ExpandedRailsMod:MonorailPowered_On_sw", "y": 90 },
+        "powered=true,shape=ascending_north": { "model": "ExpandedRailsMod:MonorailPowered_On_ne" },
+        "powered=true,shape=ascending_south": { "model": "ExpandedRailsMod:MonorailPowered_On_sw" }
+    }
+}
