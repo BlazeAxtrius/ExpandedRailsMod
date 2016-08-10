@@ -3,9 +3,9 @@ package com.expanded.rails.mod.client;
 import com.expanded.rails.mod.CommonProxy;
 import com.expanded.rails.mod.ERMBase;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -35,9 +35,111 @@ public class ClientProxy extends CommonProxy
     //}
 	
         @Override
-        public void preInit(FMLPreInitializationEvent event)
-        {
+        public void preInit(FMLPreInitializationEvent event) {
+
             super.preInit(event);
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.whiteWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "whiteWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.orangeWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "orangeWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.magentaWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "magentaWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.lightblueWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "lightblueWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.yellowWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "yellowWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.limeWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "limeWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.pinkWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "pinkWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.grayWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "grayWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.lightgrayWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "lightgrayWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.cyanWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "cyanWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.purpleWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "purpleWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.blueWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "blueWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.brownWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "brownWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.greenWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "greenWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.redWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "redWoolRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.blackWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "blackWoolRail", "inventory"));
+            //Normalrail//
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.obsidianRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "obsidianRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.diamondRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "diamondRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.lapisRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "lapisRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.iceRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "iceRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.glowstoneRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "glowstoneRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.diamondNetherRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "diamondNetherRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.diamondObsidianRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "diamondObsidianRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.brickRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "brickRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.emeraldRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "emeraldRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.netherStarRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "netherStarRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.enderPearlRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.chainRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "chainRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.armedRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "armedRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.railsCraftingTable), 0, new ModelResourceLocation(ERMBase.modid + ":" + "railsCraftingTable", "inventory"));
+            //Monorail//
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailDiamond), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailDiamond", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailGlowing), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGlowing", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailGrayOrange), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGrayOrange", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailNether), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailNether", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailObsidian), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailObsidian", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailRedGreen), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailRedGreen", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailYellowBlue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailYellowBlue", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailEmerald), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailEmerald", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailLapis), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLapis", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailGold), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGold", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailPowered), 0,new ModelResourceLocation(ERMBase.modid+":"+"MonorailPowered", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailIce), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailIce", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailChain), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailChain", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailArmed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailArmed", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailEnderPearl), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailEnderPearl", "inventory"));
+            //Triplerail//
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailDiamond), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailDiamond", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailGlowing), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailGlowing", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailNether), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailNether", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailObsidian), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailObsidian", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailEmerald), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailEmerald", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailLapis), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLapis", "inventory"));
+            //ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailPowered), 0,new ModelResourceLocation(ERMBase.modid+":"+"triplerailPowered", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailIce), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailIce", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailChain), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailChain", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailArmed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailArmed", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailEnderPearl), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailEnderPearl", "inventory"));
+            //Wool Monorails//
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailWhite), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailWhite", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailOrange), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailOrange", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailMagenta), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailMagenta", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailLightblue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLightblue", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailYellow), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailYellow", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailLime), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLime", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailPink), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailPink", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailGray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGray", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailLightgray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLightgray", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailCyan), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailCyan", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailPurple), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailPurple", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailBlue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailBlue", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailBrown), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailBrown", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailGreen), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGreen", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailRed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailRed", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.monorailBlack), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailBlack", "inventory"));
+            //wool Triplerails//
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailWhite), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailWhite", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailOrange), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailOrange", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailMagenta), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailMagenta", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailLightblue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLightblue", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailYellow), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailYellow", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailLime), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLime", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailPink), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailPink", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailGray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailGray", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailLightgray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLightgray", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailCyan), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailCyan", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailPurple), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailPurple", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailBlue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailBlue", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailBrown), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailBrown", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailGreen), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailGreen", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailRed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailRed", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.triplerailBlack), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailBlack", "inventory"));
+
+            //Crafting Table//
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.railsCraftingTable), 0, new ModelResourceLocation(ERMBase.modid + ":" + "railsCraftingTable", "inventory"));
+
+            //New Rails//
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.enderPearlDiamondRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlDiamondRail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.enderPearlDiamondMonorail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlDiamondMonorail", "inventory"));
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(ERMBase.enderPearlDiamondTriplerail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlDiamondTriplerail", "inventory"));
+
         }
 
         @Override
@@ -45,113 +147,11 @@ public class ClientProxy extends CommonProxy
             super.init(event);
 
             ERMBase.registerRenders();
-
         }
 
         public static void registerRender(Block block) {
-            //Wool Rails//
-              Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.whiteWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "whiteWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.orangeWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "orangeWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.magentaWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "magentaWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.lightblueWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "lightblueWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.yellowWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "yellowWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.limeWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "limeWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.pinkWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "pinkWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.grayWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "grayWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.lightgrayWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "lightgrayWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.cyanWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "cyanWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.purpleWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "purpleWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.blueWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "blueWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.brownWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "brownWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.greenWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "greenWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.redWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "redWoolRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.blackWoolRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "blackWoolRail", "inventory"));
-//            //Normalrail//
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.obsidianRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "obsidianRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.diamondRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "diamondRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.lapisRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "lapisRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.iceRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "iceRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.glowstoneRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "glowstoneRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.diamondNetherRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "diamondNetherRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.diamondObsidianRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "diamondObsidianRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.brickRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "brickRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.emeraldRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "emeraldRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.netherStarRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "netherStarRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.enderPearlRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.chainRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "chainRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.armedRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "armedRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.railsCraftingTable), 0, new ModelResourceLocation(ERMBase.modid + ":" + "railsCraftingTable", "inventory"));
-//            //Monorail//
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailDiamond), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailDiamond", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailGlowing), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGlowing", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailGrayOrange), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGrayOrange", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailNether), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailNether", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailObsidian), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailObsidian", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailRedGreen), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailRedGreen", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailYellowBlue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailYellowBlue", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailEmerald), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailEmerald", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailLapis), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLapis", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailGold), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGold", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailPowered), 0,new ModelResourceLocation(ERMBase.modid+":"+"MonorailPowered", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailIce), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailIce", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailChain), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailChain", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailArmed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailArmed", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailEnderPearl), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailEnderPearl", "inventory"));
-//            //Triplerail//
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailDiamond), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailDiamond", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailGlowing), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailGlowing", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailNether), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailNether", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailObsidian), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailObsidian", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailEmerald), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailEmerald", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailLapis), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLapis", "inventory"));
-//            //Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailPowered), 0,new ModelResourceLocation(ERMBase.modid+":"+"triplerailPowered", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailIce), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailIce", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailChain), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailChain", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailArmed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailArmed", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailEnderPearl), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailEnderPearl", "inventory"));
-//            //Wool Monorails//
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailWhite), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailWhite", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailOrange), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailOrange", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailMagenta), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailMagenta", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailLightblue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLightblue", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailYellow), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailYellow", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailLime), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLime", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailPink), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailPink", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailGray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGray", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailLightgray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailLightgray", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailCyan), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailCyan", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailPurple), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailPurple", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailBlue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailBlue", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailBrown), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailBrown", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailGreen), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailGreen", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailRed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailRed", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.monorailBlack), 0, new ModelResourceLocation(ERMBase.modid + ":" + "monorailBlack", "inventory"));
-//            //wool Triplerails//
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailWhite), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailWhite", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailOrange), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailOrange", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailMagenta), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailMagenta", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailLightblue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLightblue", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailYellow), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailYellow", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailLime), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLime", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailPink), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailPink", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailGray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailGray", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailLightgray), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailLightgray", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailCyan), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailCyan", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailPurple), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailPurple", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailBlue), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailBlue", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailBrown), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailBrown", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailGreen), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailGreen", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailRed), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailRed", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.triplerailBlack), 0, new ModelResourceLocation(ERMBase.modid + ":" + "triplerailBlack", "inventory"));
-//
-//            //Crafting Table//
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.railsCraftingTable), 0, new ModelResourceLocation(ERMBase.modid + ":" + "railsCraftingTable", "inventory"));
-//
-//            //New Rails//
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.enderPearlDiamondRail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlDiamondRail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.enderPearlDiamondMonorail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlDiamondMonorail", "inventory"));
-//            Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(net.minecraft.item.Item.getItemFromBlock(ERMBase.enderPearlDiamondTriplerail), 0, new ModelResourceLocation(ERMBase.modid + ":" + "enderPearlDiamondTriplerail", "inventory"));
+
+            //Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
 
             //Custom Items//
             //Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register((ERMBase.emeraldBar), 0,new ModelResourceLocation(ERMBase.modid+":"+"emeraldBar", "inventory"));
