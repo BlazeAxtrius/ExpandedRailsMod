@@ -17,6 +17,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+import static com.expanded.rails.mod.client.ClientProxy.registerRender;
+
 //import com.expanded.rails.mod.blocks.RailsCraftingTable;
 //import com.expanded.rails.mod.gui.TileEntityRailsCraftingTable;
 //import com.expanded.rails.mod.gui.GuiHandlerRailsCraftingTable;
@@ -77,7 +79,106 @@ public class ERMBase
         //public GuiHandlerRailsCraftingTable guiHandlerRailsCraftingTable = new GuiHandlerRailsCraftingTable();
         //public TileEntityNileWorkbench guiHandlerRailsCraftingTable = new TileEntityNileWorkbench();
 
-        public static void registerRenders() {
+        public static void registerRenders()
+        {
+                registerRender(whiteWoolRail);
+                registerRender(orangeWoolRail);
+                registerRender(magentaWoolRail);
+                registerRender(lightblueWoolRail);
+                registerRender(yellowWoolRail);
+                registerRender(limeWoolRail);
+                registerRender(pinkWoolRail);
+                registerRender(grayWoolRail);
+                registerRender(lightgrayWoolRail);
+                registerRender(cyanWoolRail);
+                registerRender(purpleWoolRail);
+                registerRender(blueWoolRail);
+                registerRender(brownWoolRail);
+                registerRender(greenWoolRail);
+                registerRender(redWoolRail);
+                registerRender(blackWoolRail);
+
+                registerRender(armedRail);
+                registerRender(diamondRail);
+                registerRender(emeraldRail);
+                registerRender(enderPearlRail);
+                registerRender(glowstoneRail);
+                registerRender(obsidianRail);
+                registerRender(brickRail);
+                registerRender(iceRail);
+                registerRender(chainRail);
+                registerRender(lapisRail);
+                registerRender(diamondNetherRail);
+                registerRender(diamondObsidianRail);
+                registerRender(netherStarRail);
+                //Mono Wool Rails//
+                registerRender(monorailWhite);
+                registerRender(monorailOrange);
+                registerRender(monorailMagenta);
+                registerRender(monorailLightblue);
+                registerRender(monorailYellow);
+                registerRender(monorailLime);
+                registerRender(monorailPink);
+                registerRender(monorailGray);
+                registerRender(monorailLightgray);
+                registerRender(monorailCyan);
+                registerRender(monorailPurple);
+                registerRender(monorailBlue);
+                registerRender(monorailBrown);
+                registerRender(monorailGreen);
+                registerRender(monorailRed);
+                registerRender(monorailBlack);
+                //Monorail//
+                registerRender(monorailArmed);
+                registerRender(monorailDiamond);
+                registerRender(monorailEmerald);
+                registerRender(monorailEnderPearl);
+                registerRender(monorailGlowing);
+                registerRender(monorailObsidian);
+                registerRender(monorailPowered);
+                registerRender(monorailIce);
+                registerRender(monorailChain);
+                registerRender(monorailLapis);
+                registerRender(monorailNether);
+                registerRender(monorailGrayOrange);
+                registerRender(monorailRedGreen);
+                registerRender(monorailYellowBlue);
+                registerRender(monorailGold);
+                //Triple Wool Rails//
+                registerRender(triplerailWhite);
+                registerRender(triplerailOrange);
+                registerRender(triplerailMagenta);
+                registerRender(triplerailLightblue);
+                registerRender(triplerailYellow);
+                registerRender(triplerailLime);
+                registerRender(triplerailPink);
+                registerRender(triplerailGray);
+                registerRender(triplerailLightgray);
+                registerRender(triplerailCyan);
+                registerRender(triplerailPurple);
+                registerRender(triplerailBlue);
+                registerRender(triplerailBrown);
+                registerRender(triplerailGreen);
+                registerRender(triplerailRed);
+                registerRender(triplerailBlack);
+                //Triplerail//
+                registerRender(triplerailArmed);
+                registerRender(triplerailDiamond);
+                registerRender(triplerailEmerald);
+                registerRender(triplerailEnderPearl);
+                registerRender(triplerailGlowing);
+                registerRender(triplerailObsidian);
+                //registerBlock(triplerailPowered);
+                registerRender(triplerailIce);
+                registerRender(triplerailChain);
+                registerRender(triplerailLapis);
+                registerRender(triplerailNether);
+                //New Rails//
+                registerRender(enderPearlDiamondRail);
+                registerRender(enderPearlDiamondMonorail);
+                registerRender(enderPearlDiamondTriplerail);
+
+                registerRender(railsCraftingTable);
         }
 
         public static void register() {
